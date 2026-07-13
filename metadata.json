@@ -1,0 +1,7 @@
+{
+  "name": "PM Portfolio - Madhur",
+  "description": "A high-end Product Manager portfolio showcasing strategic thinking, design excellence, and prompt engineering expertise through interactive Gemini-powered experiences.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

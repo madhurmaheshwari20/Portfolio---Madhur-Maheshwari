@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zepto Fashion Scale-up Playbook | Madhur Maheshwari</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter, JetBrains Mono, Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-outfit {
+      font-family: 'Outfit', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Simple slide active states */
+    .slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .zepto-purple {
+      background-color: #3F007F;
+    }
+    .zepto-text-purple {
+      color: #3F007F;
+    }
+    .zepto-border-purple {
+      border-color: #3F007F;
+    }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 flex flex-col justify-between min-h-screen">
+
+  <!-- TOP DECK CONTROLLER HEADER -->
+  <header class="bg-neutral-950/80 backdrop-blur border-b border-neutral-800 px-6 py-4 flex justify-between items-center z-50">
+    <div class="flex items-center gap-3">
+      <div class="bg-[#F85606] px-3 py-1 rounded text-white font-extrabold text-sm tracking-wide lowercase italic font-outfit shadow-sm">
+        zepto
+      </div>
+      <div>
+        <h1 class="text-xs font-bold uppercase tracking-widest text-neutral-400">Fashion Scale-up Playbook</h1>
+        <p class="text-[10px] text-neutral-500 font-mono">Madhur Maheshwari • Case Study Presentation</p>
+      </div>
+    </div>
+    
+    <!-- Keyboard Shortcut Help Banner -->
+    <div class="hidden md:flex items-center gap-2 text-xs text-neutral-400 bg-neutral-900/60 px-3.5 py-1.5 rounded-full border border-neutral-800/80 font-mono">
+      <span class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-[9px]">←</span>
+      <span class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-[9px]">→</span>
+      <span>or Space to navigate</span>
+    </div>
+
+    <!-- Right Controls: Back to Portfolio & Fullscreen Info -->
+    <div class="flex items-center gap-4">
+      <button onclick="toggleSidebar()" class="lg:hidden p-2 rounded bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-white" title="All Slides List">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a href="javascript:window.close()" class="px-3 py-2 text-xs font-medium bg-neutral-900 hover:bg-neutral-800 text-neutral-300 rounded border border-neutral-800 flex items-center gap-1.5 group transition-colors">
+        <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <span>Close Tab</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- WORKSPACE GRID: Left Thumbnails Sidebar (Desktop), Main Active Slide Frame -->
+  <div class="flex flex-1 relative overflow-hidden">
+    
+    <!-- LEFT SIDEBAR: Index / Slide Select List (Hidden on Mobile, toggleable) -->
+    <aside id="slide-sidebar" class="hidden lg:block w-72 bg-neutral-950 border-r border-neutral-800 shrink-0 p-5 overflow-y-auto max-h-[calc(100vh-140px)]">
+      <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 mb-4 font-mono">Presenting Deck Pages</h3>
+      
+      <div class="space-y-3 font-outfit" id="sidebar-list">
+        <!-- Generated inside inline JS below for syncing -->
+      </div>
+    </aside>
+
+    <!-- MAIN SLIDE CANVAS CONTAINER -->
+    <main class="flex-1 flex items-center justify-center p-4 md:p-8 overflow-y-auto max-h-[calc(100vh-140px)]">
+      <div class="w-full max-w-6xl aspect-[16/9] bg-neutral-950 rounded-3xl border border-neutral-800/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col relative transition-transform duration-300">
+        
+        <!-- ======================= SLIDE 1: COVER SLIDE ======================= -->
+        <article class="slide active h-full flex flex-col justify-center items-center p-12 text-center relative overflow-hidden bg-gradient-to-br from-[#1E013E] via-[#0E0025] to-[#010103]">
+          <!-- Abstract Graphic background -->
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(79,70,229,0.12),transparent_40%)]"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(219,39,119,0.06),transparent_40%)]"></div>
+          
+          <div class="space-y-10 z-10 max-w-4xl">
+            <!-- Brand icon -->
+            <div class="inline-flex flex-col items-center gap-1.5 animate-bounce">
+              <span class="bg-[#F85606] text-white px-8 py-3.5 rounded-2xl text-[24px] font-black tracking-widest lowercase italic font-outfit shadow-2xl shadow-[#F85606]/30">zepto</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight font-outfit">
+              How can Zepto scale into the <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-[#F85606]">high-return fashion category</span> while maintaining its quick delivery promise and operational efficiency?
+            </h2>
+            
+            <div class="pt-4">
+              <div class="w-24 h-[3px] bg-white mx-auto mb-6 rounded"></div>
+              <p class="text-lg md:text-xl font-medium tracking-wide text-white/90 uppercase font-outfit">
+                ~ Madhur Maheshwari
+              </p>
+              <p class="text-xs text-neutral-400 font-mono mt-1">Product Leader & Quick Commerce Innovator</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ======================= SLIDE 2: Q-COMM BATTLEFIELD ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-4">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#F85606] font-mono block mb-1">PAGE 02 // Q-COMM BATTLEFIELD</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">India's Q-Commerce Market: Tripling from ₹64K Cr to ₹2L Cr by FY28</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Current Market Context</span>
+          </div>
+
+          <!-- Main Layout Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto overflow-y-auto">
+            
+            <!-- Left Info Block -->
+            <div class="lg:col-span-7 space-y-5">
+              <p class="text-sm leading-relaxed text-neutral-300">
+                The Quick Commerce sector is witnessing a structural explosion. While the market has grown at a blistering <strong class="text-white font-semibold">142% CAGR (FY22-FY25)</strong>, it is projected to settle at a sustainable yet high-velocity <strong class="text-white font-medium">45-46% CAGR</strong> through FY28.
+              </p>
+              <p class="text-sm leading-relaxed text-neutral-400">
+                Despite this tripling of market size (GOV), market penetration remains at <strong class="text-white font-medium">just 1%</strong> of India's grocery market, signaling massive headroom for expansion beyond staples into high-AOV categories.
+              </p>
+
+              <!-- Mini table -->
+              <div class="bg-neutral-900/60 rounded-xl p-4 border border-neutral-800">
+                <table class="w-full text-left text-xs">
+                  <thead>
+                    <tr class="text-neutral-500 border-b border-neutral-800 pb-2">
+                      <th class="pb-2">Metric</th>
+                      <th class="pb-2">Current (FY25)</th>
+                      <th class="fb-2 text-[#F85606]">Projected (FY28)</th>
+                      <th class="pb-2 text-right">Growth</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-neutral-800/40">
+                      <td class="py-2.5 font-medium">Market Size (GOV)</td>
+                      <td class="py-2.5">₹64,000 Cr</td>
+                      <td class="py-2.5 text-[#F85606] font-bold">₹2,00,000 Cr</td>
+                      <td class="py-2.5 text-right font-bold text-emerald-500">3.1x</td>
+                    </tr>
+                    <tr class="border-b border-neutral-800/40">
+                      <td class="py-2.5 font-medium">Fee Revenue</td>
+                      <td class="py-2.5">₹10,500 Cr</td>
+                      <td class="py-2.5 text-[#F85606] font-bold">₹34,500 Cr</td>
+                      <td class="py-2.5 text-right font-bold text-emerald-500">3.3x</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 font-medium">Dark Store Count</td>
+                      <td class="py-2.5">3,072 Stores</td>
+                      <td class="py-2.5">-</td>
+                      <td class="py-2.5 text-right font-bold text-emerald-500">+70.7% YoY</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Signal Cards -->
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-purple-950/20 border border-purple-900/30 p-3.5 rounded-xl space-y-1">
+                  <h4 class="text-[10px] font-bold tracking-wider uppercase text-purple-400 font-mono">Profitability Signal</h4>
+                  <p class="text-[11px] text-neutral-300">Fee Revenue is tripling faster than GOV (3.3x vs 3.0x), indicating improving unit economics.</p>
+                </div>
+                <div class="bg-sky-950/20 border border-sky-900/30 p-3.5 rounded-xl space-y-1">
+                  <h4 class="text-[10px] font-bold tracking-wider uppercase text-sky-400 font-mono">Infrastructure Scale</h4>
+                  <p class="text-[11px] text-neutral-300">3,072 Dark Stores active. Sourcing expanding +70.7% YoY with store revenue up 25.1%.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Visual Block (Market share details) -->
+            <div class="lg:col-span-5 bg-neutral-900/40 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="border-b border-neutral-800 pb-2">
+                  <h4 class="text-xs uppercase tracking-widest font-bold text-red-500 font-mono">Market Share Crisis</h4>
+                  <h3 class="text-lg font-bold font-outfit mt-0.5">The Race for Second Place</h3>
+                </div>
+                <p class="text-xs text-neutral-400 leading-relaxed">
+                  While the market booms, Zepto is structurally losing ground. In just 7 months (Jan-Aug '24), <strong class="text-white">Zepto lost 600 bps of market share</strong>, falling to 3rd place:
+                </p>
+
+                <!-- Mock donut/bar breakdown -->
+                <div class="space-y-3 font-mono text-[10px] pt-2">
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-center text-xs">
+                      <span class="text-neutral-300">Blinkit (Leader)</span>
+                      <span class="text-white font-bold">52%</span>
+                    </div>
+                    <div class="h-2 w-full bg-neutral-800 rounded-full overflow-hidden">
+                      <div class="bg-yellow-500 h-full rounded-full" style="width: 52%"></div>
+                    </div>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-center text-xs">
+                      <span class="text-neutral-300">Instamart</span>
+                      <span class="text-white font-bold">25%</span>
+                    </div>
+                    <div class="h-2 w-full bg-neutral-800 rounded-full overflow-hidden">
+                      <div class="bg-orange-500 h-full rounded-full" style="width: 25%"></div>
+                    </div>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-center text-xs">
+                      <span class="text-neutral-300">Zepto (Erosion)</span>
+                      <span class="text-white font-bold text-red-400">23%</span>
+                    </div>
+                    <div class="h-2 w-full bg-neutral-800 rounded-full overflow-hidden">
+                      <div class="bg-red-500 h-full rounded-full" style="width: 23%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Velocity Mismatch section -->
+                <div class="bg-neutral-950 p-3 rounded-xl border border-neutral-800/80">
+                  <h5 class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono mb-2">Velocity Mismatch (YoY Growth)</h5>
+                  <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="p-1.5 hover:bg-neutral-900 rounded border border-neutral-800/40">
+                      <p class="text-[10px] font-sans text-neutral-400">Instamart</p>
+                      <p class="text-sm font-bold text-orange-500 font-mono">65%</p>
+                    </div>
+                    <div class="p-1.5 hover:bg-neutral-900 rounded border border-neutral-800/40">
+                      <p class="text-[10px] font-sans text-neutral-400">Blinkit</p>
+                      <p class="text-sm font-bold text-yellow-500 font-mono">50%</p>
+                    </div>
+                    <div class="p-1.5 bg-red-950/20 hover:bg-red-950/30 rounded border border-red-900/30">
+                      <p class="text-[10px] font-sans text-red-300">Zepto</p>
+                      <p class="text-sm font-bold text-red-500 font-mono">15%</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-indigo-950/20 border border-indigo-900/30 p-3 rounded-xl mt-4">
+                <p class="text-[11px] italic text-indigo-300 leading-relaxed text-center">
+                  <strong>Strategic Imperative:</strong> To win, Zepto must escape the grocery price war and expand into High-AOV Fashion before competitors lock it down.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 2 of 8</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 3: Q-COMMERCE FASHION WARS ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-4">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#F85606] font-mono block mb-1">PAGE 03 // THE VALUE PRIZE</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Q-Commerce Fashion Wars (FY25 - FY30 Forecast)</h2>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="px-2.5 py-1 bg-[#1E013E] rounded text-xs text-indigo-400 font-mono font-medium">Market Focus</span>
+            </div>
+          </div>
+
+          <!-- Main Layout Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto items-center overflow-y-auto">
+            
+            <!-- Left Side: Bar Graph -->
+            <div class="lg:col-span-6 space-y-6">
+              <div class="space-y-1">
+                <p class="text-xs text-neutral-400 font-mono uppercase tracking-widest">Growth Factor: 6x Market expansion</p>
+                <h3 class="text-base font-bold font-outfit">Target Market Projection to FY30</h3>
+              </div>
+
+              <!-- Bar visual comparison -->
+              <div class="space-y-4 pt-2">
+                <div class="flex items-center justify-between">
+                  <div class="w-16 text-xs text-neutral-400 font-mono">FY25</div>
+                  <div class="flex-1 px-4">
+                    <div class="h-8 bg-[#3F007F]/30 hover:bg-[#3F007F]/40 border border-[#3F007F]/40 rounded-xl relative overflow-hidden group transition-all" style="width: 25%">
+                      <div class="absolute inset-y-0 left-0 bg-[#3F007F] animate-pulse rounded-l-xl" style="width: 100%"></div>
+                      <span class="absolute right-3 top-1.5 text-[11px] font-bold text-white font-mono">$700M</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="w-16 text-xs text-indigo-400 font-bold font-mono">FY30 PROJ</div>
+                  <div class="flex-1 px-4">
+                    <div class="h-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl relative overflow-hidden shadow-lg shadow-indigo-600/10 group transition-all" style="width: 100%">
+                      <span class="absolute left-3 top-2.5 text-[10px] font-bold uppercase tracking-wider text-white bg-black/30 px-1.5 py-0.5 rounded">6x Boom</span>
+                      <span class="absolute right-4 top-2.5 text-xs font-black text-white font-mono">$3.3 Billion</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl text-center">
+                <p class="text-xs text-neutral-300 font-mono uppercase tracking-widest">
+                  👗 Emerging Sector • 15-20% of GMV • 40-45% Annual Growth
+                </p>
+              </div>
+
+              <!-- Market Players list -->
+              <div class="grid grid-cols-2 gap-4 pt-2">
+                <div class="bg-neutral-900 border border-neutral-800 p-3 rounded-xl">
+                  <p class="text-[10px] font-bold uppercase tracking-wider text-[#F85606] font-mono mb-1">Vertical Specialists (Fashion First)</p>
+                  <p class="text-xs font-semibold text-white">Myntra M-Now, NEWME, SLIKK</p>
+                </div>
+                <div class="bg-neutral-900 border border-neutral-800 p-3 rounded-xl">
+                  <p class="text-[10px] font-bold uppercase tracking-wider text-[#F85606] font-mono mb-1">Hybrid Retailers (Try-and-Buy)</p>
+                  <p class="text-xs font-semibold text-white">Decathlon (Current in 7 cities)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: The Economic Gap & Mismatch comparison -->
+            <div class="lg:col-span-6 bg-neutral-900/30 border border-neutral-800/80 rounded-2xl p-6 space-y-6">
+              
+              <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-widest font-bold text-indigo-400 font-mono">Zepto: The Economic Gap</h4>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="bg-neutral-950 p-3 rounded-xl border border-neutral-800/50">
+                    <p class="text-[10px] text-neutral-400">Target Market Share</p>
+                    <p class="text-lg font-bold text-white font-mono mt-0.5">5% <span class="text-xs font-normal text-neutral-500">vs 40%</span></p>
+                  </div>
+                  <div class="bg-neutral-950 p-3 rounded-xl border border-neutral-800/50">
+                    <p class="text-[10px] text-neutral-400">SKU Catalog Depth</p>
+                    <p class="text-lg font-bold text-white font-mono mt-0.5">5k <span class="text-xs font-normal text-neutral-500">vs 100k</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Transaction dynamics -->
+              <div class="space-y-4 border-t border-neutral-800/60 pt-4">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-[#F85606] font-mono">Revenue per Order Dynamic Mismatch</h3>
+                
+                <div class="space-y-3 pt-1">
+                  <!-- Grocery -->
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                      <span class="text-neutral-400">Grocery Model (Current Zepto DNA)</span>
+                      <span class="text-neutral-400">₹50 Fee / Order</span>
+                    </div>
+                    <div class="h-6 w-full bg-neutral-950 rounded-lg overflow-hidden flex items-center border border-neutral-800 relative">
+                      <div class="bg-neutral-700 h-full rounded" style="width: 14%"></div>
+                      <span class="absolute left-3 text-[10px] text-neutral-300">AOV ₹500 × 10% Take</span>
+                    </div>
+                  </div>
+
+                  <!-- Fashion -->
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                      <span class="text-emerald-400 font-bold">Fashion Model (New Playbook Target)</span>
+                      <span class="text-emerald-400 font-bold">₹360 Fee / Order</span>
+                    </div>
+                    <div class="h-8 w-full bg-neutral-950 rounded-lg overflow-hidden flex items-center border border-emerald-900/30 relative">
+                      <div class="bg-emerald-500 h-full rounded shadow-[0_0_15px_-3px_rgba(16,185,129,0.3)]" style="width: 100%"></div>
+                      <span class="absolute left-3 text-[11px] text-white font-bold">AOV ₹2,000+ × 18% Take</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-emerald-950/20 border border-emerald-900/30 text-emerald-400 font-mono text-center text-xs font-bold rounded-xl tracking-wider">
+                  🔥 7.2x REVENUE PER ORDER MISMATCH OVER GROCERIES
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 3 of 8</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 4: BUYER ARCHETYPES ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#F85606] font-mono block mb-1">PAGE 04 // USER RESEARCH</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Buyer Archetypes: Who Shops Apparel Under 10-Mins?</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Target Persona Blueprint</span>
+          </div>
+
+          <!-- Persona Columns -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto overflow-y-auto">
+            
+            <!-- Persona 1 -->
+            <div class="bg-neutral-900/60 border border-neutral-800/80 rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-red-900/40 hover:bg-neutral-900/80 transition-colors">
+              <div class="space-y-3">
+                <div class="flex justify-between items-center bg-red-950/30 p-2 rounded-xl border border-red-900/20">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-lg">🚨</span>
+                    <h3 class="text-sm font-bold font-outfit text-red-400">Social Emergency</h3>
+                  </div>
+                  <span class="px-1.5 py-0.5 bg-red-500/20 text-red-300 font-mono text-[9px] rounded uppercase font-bold tracking-wider">High Stakes</span>
+                </div>
+                <p class="text-[10px] text-neutral-400 font-mono uppercase tracking-wider">Age 22–32 • Metro Professional • &lt; 1-2 Hours</p>
+                <p class="text-xs italic text-neutral-300">"The crisis shopper. Needs reliable apparel solutions immediately for high-pressure situations."</p>
+                
+                <ul class="text-[11px] text-neutral-400 space-y-1.5 pt-1.5">
+                  <li class="flex items-start gap-1">
+                    <span class="text-red-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Work Crisis:</strong> Spilled coffee before interviews; needs a clean white shirt instantly.</span>
+                  </li>
+                  <li class="flex items-start gap-1">
+                    <span class="text-red-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Event Panic:</strong> Sudden invite to dates or high-society functions.</span>
+                  </li>
+                  <li class="flex items-start gap-1">
+                    <span class="text-red-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Packing Miss:</strong> Forgot belts or shoes on flyovers.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="border-t border-neutral-800/50 pt-2.5 mt-2 flex flex-wrap gap-1.5">
+                <span class="bg-neutral-950 text-[9px] font-mono text-neutral-400 px-2 py-0.5 rounded">Fit Guarantee</span>
+                <span class="bg-neutral-950 text-[9px] font-mono text-neutral-400 px-2 py-0.5 rounded">Trusted Brands</span>
+              </div>
+            </div>
+
+            <!-- Persona 2 -->
+            <div class="bg-neutral-900/60 border border-neutral-800/80 rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-amber-900/40 hover:bg-neutral-900/80 transition-colors">
+              <div class="space-y-3">
+                <div class="flex justify-between items-center bg-amber-950/30 p-2 rounded-xl border border-amber-900/20">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-lg">⚡</span>
+                    <h3 class="text-sm font-bold font-outfit text-amber-400">Impulse Trendsetter</h3>
+                  </div>
+                  <span class="px-1.5 py-0.5 bg-amber-500/20 text-amber-300 font-mono text-[9px] rounded uppercase font-bold tracking-wider">Social Trigger</span>
+                </div>
+                <p class="text-[10px] text-neutral-400 font-mono uppercase tracking-wider">Gen Z / Millennial • Digital Native • Same-Day</p>
+                <p class="text-xs italic text-neutral-300">"The vibe chaser. Influenced by internet trends, music festivals, and social validation."</p>
+                
+                <ul class="text-[11px] text-neutral-400 space-y-1.5 pt-1.5">
+                  <li class="flex items-start gap-1">
+                    <span class="text-amber-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Viral Feed:</strong> Sees a trending reel fit -> immediately wants similar outfit in hours.</span>
+                  </li>
+                  <li class="flex items-start gap-1">
+                    <span class="text-amber-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Spot Ready:</strong> Needs standout outfits for college fests or sudden hangouts.</span>
+                  </li>
+                  <li class="flex items-start gap-1">
+                    <span class="text-amber-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Instant High:</strong> Immediate shopping for weekend treats.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="border-t border-neutral-800/50 pt-2.5 mt-2 flex flex-wrap gap-1.5">
+                <span class="bg-neutral-950 text-[9px] font-mono text-neutral-400 px-2 py-0.5 rounded">Social Validation</span>
+                <span class="bg-neutral-950 text-[9px] font-mono text-neutral-400 px-2 py-0.5 rounded">New Drops</span>
+              </div>
+            </div>
+
+            <!-- Persona 3 -->
+            <div class="bg-neutral-900/60 border border-neutral-800/80 rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-indigo-900/40 hover:bg-neutral-900/80 transition-colors">
+              <div class="space-y-3">
+                <div class="flex justify-between items-center bg-indigo-950/30 p-2 rounded-xl border border-indigo-900/20">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-lg">📦</span>
+                    <h3 class="text-sm font-bold font-outfit text-indigo-400">Value Planner</h3>
+                  </div>
+                  <span class="px-1.5 py-0.5 bg-indigo-500/20 text-indigo-300 font-mono text-[9px] rounded uppercase font-bold tracking-wider">Risk Averse</span>
+                </div>
+                <p class="text-[10px] text-neutral-400 font-mono uppercase tracking-wider">Family Manager • Value Seeker • Flexible</p>
+                <p class="text-xs italic text-neutral-300">"The optimizer. Prioritizes transparent exchange policies & deep product pricing trusts."</p>
+                
+                <ul class="text-[11px] text-neutral-400 space-y-1.5 pt-1.5">
+                  <li class="flex items-start gap-1">
+                    <span class="text-indigo-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Festive Prep:</strong> Traditional outfits or gifts for Diwali/Diwali parties.</span>
+                  </li>
+                  <li class="flex items-start gap-1">
+                    <span class="text-indigo-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Bulk Refresh:</strong> Routine seasonal wardrobe items for children or spouse.</span>
+                  </li>
+                  <li class="flex items-start gap-1">
+                    <span class="text-indigo-500 shrink-0">•</span>
+                    <span><strong class="text-white font-medium">Compare Match:</strong> Deliberate search for valid bargains.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="border-t border-neutral-800/50 pt-2.5 mt-2 flex flex-wrap gap-1.5">
+                <span class="bg-neutral-950 text-[9px] font-mono text-neutral-400 px-2 py-0.5 rounded">Refund Terms</span>
+                <span class="bg-neutral-950 text-[9px] font-mono text-neutral-400 px-2 py-0.5 rounded">Store Returns</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 4 of 8</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 5: THE EXECUTION CLIFF ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-4">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#F85606] font-mono block mb-1">PAGE 05 // SYSTEM BLUEPRINT</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">The Execution Cliff: Resolving Sizing & Logistics Risks</h2>
+            </div>
+            <span class="px-2.5 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Core Strategy Matrice</span>
+          </div>
+
+          <!-- Matrix Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto overflow-y-auto">
+            
+            <!-- Category A: Return Burn -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2 border-b border-purple-900/40 pb-2">
+                <span class="text-lg">🔄</span>
+                <h3 class="text-sm font-bold uppercase tracking-widest text-purple-400 font-mono">Eliminating "Return Burn"</h3>
+              </div>
+
+              <!-- Strategy 1 -->
+              <div class="bg-neutral-900 border border-neutral-802/50 p-4 rounded-xl space-y-1.5">
+                <div class="flex justify-between items-center">
+                  <span class="text-[10px] font-bold text-neutral-500 font-mono uppercase">Strategy A</span>
+                  <span class="text-[10px] text-purple-400 font-mono font-medium">Doorstep Monetization</span>
+                </div>
+                <h4 class="text-xs font-bold text-white">The "Instant-Fit" Protocol</h4>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  Delivery riders facilitate quick doorstep try-on. Compensated with brief convenience wait fees to secure driver efficiency. Conversions instantly protected.
+                </p>
+                <p class="text-[11px] text-purple-400 italic">Core Metric: Converts failed sizes into immediate doorstep returns (Saves reverse logistic loops).</p>
+              </div>
+
+              <!-- Strategy 2 -->
+              <div class="bg-neutral-900 border border-neutral-802/50 p-4 rounded-xl space-y-1.5">
+                <div class="flex justify-between items-center">
+                  <span class="text-[10px] font-bold text-neutral-500 font-mono uppercase">Strategy B</span>
+                  <span class="text-[10px] text-purple-400 font-mono font-medium">Friction Locking</span>
+                </div>
+                <h4 class="text-xs font-bold text-white">Cross-Brand "True-Size" Mapping</h4>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  Referencing custom body profiling comparing shopper choices in global brands (Zara, H&M) to programmatically align predictions directly during shopping.
+                </p>
+                <p class="text-[11px] text-purple-400 italic font-medium">Effect: Cuts initial listing size returns by over 35% on checkout.</p>
+              </div>
+            </div>
+
+            <!-- Category B: Inventory Burn -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2 border-b border-emerald-950 pb-2">
+                <span class="text-lg">🏬</span>
+                <h3 class="text-sm font-bold uppercase tracking-widest text-emerald-400 font-mono font-semibold">Neutralizing "Inventory Burn"</h3>
+              </div>
+
+              <!-- Strategy 3 -->
+              <div class="bg-neutral-900 border border-neutral-802/50 p-4 rounded-xl space-y-1.5">
+                <div class="flex justify-between items-center">
+                  <span class="text-[10px] font-bold text-neutral-500 font-mono uppercase">Strategy C</span>
+                  <span class="text-[10px] text-emerald-400 font-mono font-medium">Logistical Intelligence</span>
+                </div>
+                <h4 class="text-xs font-bold text-white">Superstore Replenishment (Hub-and-Spoke)</h4>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  Dark stores keep strictly 2–4 hours of hyper-local visual trend clothing blocks. Central warehouses feed local hubs of high-velocity stock three times daily.
+                </p>
+                <p class="text-[11px] text-emerald-400 italic">Effect: Achieves major square-foot sales productivity in prime metropolitan areas.</p>
+              </div>
+
+              <!-- Strategy 4 -->
+              <div class="bg-neutral-900 border border-neutral-802/50 p-4 rounded-xl space-y-1.5">
+                <div class="flex justify-between items-center">
+                  <span class="text-[10px] font-bold text-neutral-500 font-mono uppercase">Strategy D</span>
+                  <span class="text-[10px] text-emerald-400 font-mono font-medium">P&L Protection</span>
+                </div>
+                <h4 class="text-xs font-bold text-white">Zero-Risk Consignment (SOR model)</h4>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  Incentivizing partner labels with a Sale-or-Return workflow. Retained inventory risk remains brand-owned, removing reverse asset burden on the Balance Sheet.
+                </p>
+                <p class="text-[11px] text-emerald-400 italic">Capital Preservation: Zero-overhead storage risks and limitless styling options.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 5 of 8</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 6: THE EXPERIENCE STACK (VIP Trial) ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-[#3F007F] text-white relative overflow-hidden">
+          <!-- Abstract Background shapes to give it premium look -->
+          <div class="absolute inset-x-0 bottom-0 top-1/2 bg-black/20 skew-y-3 origin-bottom-right"></div>
+          
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-white/20 pb-4 z-10">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-orange-400 font-mono block mb-1">PAGE 06 // PRODUCT PROTOYPES</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">The Experience Stack: VIP Trial & 10-Min Return Toggle</h2>
+            </div>
+            <span class="px-3 py-1 bg-black/35 rounded font-mono text-xs text-white/80 border border-white/10">UI Showcase</span>
+          </div>
+
+          <!-- Phone Layout + Feature Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto items-center overflow-y-auto z-10">
+            
+            <!-- Phone mockup simulating app experience -->
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="w-60 bg-neutral-950 border-[6px] border-neutral-800 rounded-[32px] h-96 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col relative font-sans text-neutral-900 text-[10px]">
+                
+                <!-- Notch/Speaker -->
+                <div class="absolute top-0 inset-x-0 flex justify-center z-20">
+                  <div class="bg-neutral-800 h-4 w-28 rounded-b-xl flex items-center justify-around px-2 text-[8px] text-white/40">
+                    <span>9:41</span>
+                    <div class="w-8 h-2 bg-black rounded-full"></div>
+                    <span>5G</span>
+                  </div>
+                </div>
+
+                <!-- Checkout Header -->
+                <div class="bg-white border-b border-neutral-100 px-4 pt-5 pb-2 flex items-center gap-2 mt-2">
+                  <span class="text-xs font-bold text-neutral-700">←</span>
+                  <span class="font-bold text-xs">Checkout Summary</span>
+                </div>
+
+                <!-- Scroll Contents -->
+                <div class="flex-1 overflow-y-auto bg-neutral-50 px-3 py-2 space-y-3">
+                  <!-- Address Card -->
+                  <div class="bg-white p-2 rounded-lg border border-neutral-200/80 space-y-0.5">
+                    <p class="font-bold text-[#3F007F] text-[8px]">Delivery Address</p>
+                    <p class="font-medium text-neutral-800">Aman Gupta, Sector 45</p>
+                    <p class="text-[7px] text-neutral-400">12/B, Green Park Main, New Delhi</p>
+                  </div>
+
+                  <!-- Checkout List -->
+                  <div class="bg-white p-2 rounded-lg border border-neutral-200/80 space-y-1.5">
+                    <div class="flex justify-between items-center text-neutral-400 pb-1 border-b border-neutral-100 text-[8px]">
+                      <span>Order Summary</span>
+                      <span>2 Items</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center gap-1">
+                        <div class="w-6 h-6 rounded bg-neutral-100 flex items-center justify-center">👕</div>
+                        <div>
+                          <p class="font-semibold text-neutral-800">Men's Comfort Denim</p>
+                          <p class="text-[6px] text-neutral-400">Slim Fit • Size M</p>
+                        </div>
+                      </div>
+                      <span class="font-bold">₹1,299</span>
+                    </div>
+                  </div>
+
+                  <!-- VIP TRY ON CHECKBOX CARD (Zepto highlight!) -->
+                  <div class="bg-[#3F007F]/10 border-2 border-[#3F007F] p-3 rounded-xl space-y-1.5 relative overflow-hidden">
+                    <div class="absolute top-1 right-2 bg-orange-500 text-white font-mono text-[6px] font-black uppercase px-1 rounded">Rider wait</div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center gap-1.5">
+                        <span class="text-xs">🏷️</span>
+                        <div>
+                          <p class="font-black text-[#3F007F] text-[9px] uppercase tracking-wide">VIP Trial Service</p>
+                          <p class="text-[7px] text-neutral-500">Rider waits while you try on clothes</p>
+                        </div>
+                      </div>
+                      <!-- Styled Switch toggled on -->
+                      <div class="w-7 h-4 bg-[#3F007F] rounded-full p-0.5 flex items-center justify-end">
+                        <div class="w-3 h-3 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+                    <p class="text-[7px] text-[#3F007F] leading-tight font-medium">Instant 10-minute return refund directly if sizing doesn't fit.</p>
+                  </div>
+
+                  <!-- Totals -->
+                  <div class="bg-white p-2 rounded-lg border border-neutral-200/80 space-y-1 text-[8px]">
+                    <div class="flex justify-between text-neutral-500">
+                      <span>Items Fee</span>
+                      <span>₹1,798</span>
+                    </div>
+                    <div class="flex justify-between text-[#3F007F] font-bold">
+                      <span>VIP Service Fee</span>
+                      <span>₹29</span>
+                    </div>
+                    <div class="flex justify-between border-t border-neutral-100 pt-1 text-xs font-black text-neutral-900 font-mono">
+                      <span>Total Amount</span>
+                      <span>₹1,827</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Checkout CTA -->
+                <div class="bg-white p-2 border-t border-neutral-100">
+                  <div class="bg-[#F85606] text-white font-bold py-1.5 rounded-lg text-center text-xs tracking-wider uppercase">
+                    Place order (10 mins)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Strategy bullet columns -->
+            <div class="lg:col-span-7 space-y-6">
+              
+              <!-- Segment 1 -->
+              <div class="space-y-2">
+                <div class="inline-flex items-center gap-1 px-2.5 py-0.5 bg-orange-500 text-white font-mono text-[9px] font-bold uppercase rounded">
+                  VIP TRIAL EXPLAINER
+                </div>
+                <h3 class="text-xl font-bold font-outfit">Solving online's biggest friction point: size uncertainty</h3>
+                <p class="text-sm leading-relaxed text-white/95">
+                  <strong class="font-bold text-orange-300">Feature Details:</strong> An intuitive toggle button added right during final checkout allows users to pay a small convenient premium wait fee (<strong class="text-orange-300">₹29</strong>) to request a doorstep fit check.
+                </p>
+                <p class="text-xs text-white/70 leading-relaxed font-mono">
+                  Why it's there: The rider holds delivery for exactly 10 minutes at the doorstep while you try the apparel garment inside, mimicking the convenience of instant mall physical trial rooms.
+                </p>
+              </div>
+
+              <!-- Segment 2 -->
+              <div class="space-y-2 bg-black/20 border border-white/10 p-5 rounded-2xl">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-lg">⚡</span>
+                  <h4 class="text-xs font-bold uppercase tracking-widest text-orange-400 font-mono">10 min instant return Highlight</h4>
+                </div>
+                <p class="text-xs text-white/90 leading-relaxed">
+                  <strong class="font-bold text-white uppercase font-mono">Feature:</strong> Includes a fully backed "10-minute return" protocol. If the item doesn't fit or fails expectations during trial, the driver takes the delivery box right back immediately.
+                </p>
+                <p class="text-xs text-orange-300 font-medium">
+                  Why it matters: Eliminates the pain of waiting weeks for reverse pickups, turning size-concerns into high-ROI sales conversions on the spot.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-white/40 text-[10px] font-mono border-t border-white/10 pt-3 flex justify-between z-10">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 6 of 8</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 7: THE EXPERIENCE STACK (Occasion Bundles) ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-[#3F007F] text-white relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-white/20 pb-4 z-10">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-orange-400 font-mono block mb-1">PAGE 07 // INTERACTION INTERFACE</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">The Experience Stack: Occasion Bundles & Texture Clips</h2>
+            </div>
+            <span class="px-3 py-1 bg-black/35 rounded font-mono text-xs text-white/80 border border-white/10">UI Showcase</span>
+          </div>
+
+          <!-- Main Layout Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto items-center overflow-y-auto z-10">
+            
+            <!-- Left Side: Interactive Bullet Points -->
+            <div class="lg:col-span-7 space-y-6">
+              
+              <!-- Segment 1 -->
+              <div class="space-y-2">
+                <div class="inline-flex items-center gap-1 px-2.5 py-0.5 bg-orange-500 text-white font-mono text-[9px] font-bold uppercase rounded">
+                  Occasion Bundles
+                </div>
+                <h3 class="text-xl font-bold font-outfit">Simplifying choice to drive Average Order Value (AOV)</h3>
+                <p class="text-sm leading-relaxed text-white/95">
+                  <strong class="font-bold text-orange-300">Feature Details:</strong> One-click checkout pre-set sets that pair complementary items together. Instead of buying a shirt alone, users buy the whole curated visual set immediately.
+                </p>
+                <p class="text-xs text-white/70 leading-relaxed font-mono">
+                  Why it's there: Multiplies average order fees and saves users complex styling selection cycles (e.g., "The Date Night Kit", "The Interview Ready Bundle").
+                </p>
+              </div>
+
+              <!-- Segment 2 -->
+              <div class="space-y-2 bg-black/20 border border-white/10 p-5 rounded-2xl">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-lg">🎬</span>
+                  <h4 class="text-xs font-bold uppercase tracking-widest text-orange-300 font-mono">High Texture Video & Images</h4>
+                </div>
+                <p class="text-xs text-white/95 leading-relaxed">
+                  <strong class="font-bold text-white font-mono">Feature:</strong> Embedding quick, 3-second looping, hyper-focused fabric texture clips right inside clothing display cards.
+                </p>
+                <p class="text-xs text-orange-300 font-medium">
+                  Why it matters: Completely overcomes the "digital barrier" where shoppers can't touch the garment. Displays fabric movement, stretch, drape, and light reflection.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Right Side: Phone visual representing Occasion Bundle -->
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="w-60 bg-neutral-950 border-[6px] border-neutral-800 rounded-[32px] h-96 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col relative font-sans text-neutral-900 text-[10px]">
+                
+                <!-- Notch/Speaker -->
+                <div class="absolute top-0 inset-x-0 flex justify-center z-20">
+                  <div class="bg-neutral-800 h-4 w-28 rounded-b-xl flex items-center justify-around px-2 text-[8px] text-white/40">
+                    <span>9:41</span>
+                    <div class="w-8 h-2 bg-black rounded-full"></div>
+                    <span>5G</span>
+                  </div>
+                </div>
+
+                <!-- Shop Header -->
+                <div class="bg-white border-b border-neutral-100 px-4 pt-5 pb-2 flex justify-between items-center mt-2">
+                  <span class="font-bold text-xs text-[#3F007F]">zepto fashion</span>
+                  <span class="text-neutral-400 font-mono text-[7px]" id="current-clock">10 mins arrival</span>
+                </div>
+
+                <!-- Products Display -->
+                <div class="flex-1 overflow-y-auto bg-neutral-50 p-2.5 space-y-3">
+                  
+                  <!-- Bundles section -->
+                  <div class="space-y-1.5">
+                    <p class="font-bold text-neutral-400 text-[7px] uppercase tracking-wider font-mono">Curated Specials</p>
+                    <h4 class="font-black text-neutral-900 text-[11px] font-outfit leading-none">Occasion Bundles</h4>
+                    
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                      <!-- Bundle 1 -->
+                      <div class="bg-white p-2 rounded-xl border border-neutral-200/80 flex flex-col justify-between hover:border-[#3F007F] transition-colors relative">
+                        <span class="absolute top-1 left-1 bg-[#3F007F] text-white text-[5px] font-bold uppercase tracking-widest px-1 rounded-sm">Hot Set</span>
+                        <div class="text-center text-xl my-2">👔💼⌚</div>
+                        <div class="space-y-0.5">
+                          <p class="font-bold text-neutral-800 text-[8px] truncate">Interview Ready Kit</p>
+                          <p class="text-[#3F007F] font-black text-[9px] font-mono">₹1,800</p>
+                        </div>
+                        <button class="bg-[#F85606] text-white font-bold py-1 mt-2.5 rounded text-[7px] tracking-wider uppercase">Add Pack</button>
+                      </div>
+
+                      <!-- Bundle 2 -->
+                      <div class="bg-white p-2 rounded-xl border border-neutral-200/80 flex flex-col justify-between hover:border-[#3F007F] transition-colors relative">
+                        <span class="absolute top-1 left-1 bg-pink-600 text-white text-[5px] font-bold uppercase tracking-widest px-1 rounded-sm">Date Spec</span>
+                        <div class="text-center text-xl my-2">🕶️🚶‍♂️✨</div>
+                        <div class="space-y-0.5">
+                          <p class="font-bold text-neutral-800 text-[8px] truncate">The Date Night Kit</p>
+                          <p class="text-[#3F007F] font-black text-[9px] font-mono">₹2,500</p>
+                        </div>
+                        <button class="bg-[#F85606] text-white font-bold py-1 mt-2.5 rounded text-[7px] tracking-wider uppercase">Add Pack</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- High Texture Demo Card -->
+                  <div class="bg-white p-2 rounded-xl border border-neutral-200/80 space-y-2">
+                    <div class="flex justify-between items-center">
+                      <span class="text-[7px] font-mono text-neutral-400 uppercase tracking-widest">Interactive Material Visualizer</span>
+                      <span class="text-emerald-500 font-bold font-mono text-[7px]">Looping Clip</span>
+                    </div>
+
+                    <!-- Video simulated image overlay -->
+                    <div class="bg-neutral-900 rounded-lg h-20 overflow-hidden relative flex items-center justify-center text-white/50 text-[18px]">
+                      <span class="text-3xl animate-pulse">👚</span>
+                      <div class="absolute bottom-1 right-2 bg-black/60 backdrop-blur-md px-1 py-0.5 rounded text-[5px] text-white font-mono uppercase tracking-widest flex items-center gap-1">
+                        <span class="w-1 h-1 bg-red-500 rounded-full animate-ping"></span>
+                        <span>Texture Clip</span>
+                      </div>
+                    </div>
+                    <div class="space-y-0.5">
+                      <p class="font-bold text-neutral-800">Men's Premium Linen Shirt</p>
+                      <p class="text-[7px] text-neutral-400">Looping micro-clip shows organic fabric drape/light reflection</p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-white/40 text-[10px] font-mono border-t border-white/10 pt-3 flex justify-between z-10">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 7 of 8</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 8: INSTANT IMPACT (ABOUT MADHUR) ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#F85606] font-mono block mb-1">PAGE 08 // ROADMAP TO ACTION</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Instant Impact: Madhur Maheshwari's Competencies</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-[#F85606] font-bold uppercase tracking-wider">Candidate Profile</span>
+          </div>
+
+          <!-- Profile Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto overflow-y-auto items-center">
+            
+            <!-- Left Card: Portfolio style widget -->
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="w-72 bg-neutral-900 border border-neutral-800 rounded-3xl p-5 space-y-4 shadow-xl">
+                <!-- Profile Header -->
+                <div class="flex gap-4 items-center">
+                  <div class="w-16 h-16 rounded-full border-2 border-indigo-500 bg-neutral-800 overflow-hidden shrink-0">
+                    <img 
+                      src="https://lh3.googleusercontent.com/d/1bQS1lE_l2wgmwDgqwWiQji7M3hge_sKv" 
+                      class="w-full h-full object-cover grayscale" 
+                      alt="Madhur Maheshwari"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-black font-outfit text-white uppercase tracking-wide">Madhur Maheshwari</h3>
+                    <p class="text-[10px] text-indigo-400 font-mono">Product Manager 1 (Core PM)</p>
+                    <div class="flex items-center gap-1.5 mt-1">
+                      <span class="px-1.5 py-0.5 bg-yellow-500/20 text-yellow-300 font-mono text-[8px] rounded uppercase font-extrabold tracking-wider">7 min arrival</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Highlight stats -->
+                <div class="grid grid-cols-2 gap-3 border-y border-neutral-800/80 py-3">
+                  <div class="text-center p-2 bg-neutral-950 rounded-xl border border-neutral-800/40">
+                    <p class="text-[9px] text-neutral-500 uppercase font-mono tracking-wider">Metric Status</p>
+                    <p class="text-xs font-bold text-white mt-0.5">High ROI</p>
+                  </div>
+                  <div class="text-center p-2 bg-neutral-950 rounded-xl border border-[#3F007F]/20">
+                    <p class="text-[9px] text-neutral-500 uppercase font-mono tracking-wider">Verticals</p>
+                    <p class="text-xs font-bold text-indigo-400 mt-0.5">0-to-1 Leader</p>
+                  </div>
+                </div>
+
+                <!-- Bullet list of highlights -->
+                <div class="space-y-3">
+                  <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono">Product Highlights</p>
+                  <ul class="text-[10px] space-y-2 text-neutral-300">
+                    <li class="flex items-start gap-1.5">
+                      <span class="text-emerald-500 font-bold">✓</span>
+                      <span><strong class="text-white">Founder's DNA:</strong> Built 'Mirayaa' from 0 to ₹3L revenue in 8 weeks.</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                      <span class="text-emerald-500 font-bold">✓</span>
+                      <span><strong class="text-white">Zero Latency:</strong> 100% on-time project delivery record at Schbang agency.</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                      <span class="text-emerald-500 font-bold">✓</span>
+                      <span><strong class="text-white">Tech Compatible:</strong> CS Engineer + EPH API integration expertise.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Badges -->
+                <div class="flex flex-wrap gap-1.5 pt-2 border-t border-neutral-800/50">
+                  <span class="text-[8px] font-mono bg-neutral-950 border border-neutral-800 px-2 py-0.5 rounded text-neutral-400">Hyper-Local Strategy</span>
+                  <span class="text-[8px] font-mono bg-neutral-950 border border-neutral-800 px-2 py-0.5 rounded text-neutral-400">Metric Mover</span>
+                  <span class="text-[8px] font-mono bg-neutral-950 border border-neutral-800 px-2 py-0.5 rounded text-neutral-400">Execution Machine</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right details -->
+            <div class="lg:col-span-7 space-y-5">
+              <div class="space-y-2">
+                <h3 class="text-2xl md:text-3xl font-black font-outfit uppercase tracking-tight text-white leading-none">Instant Impact.</h3>
+                <p class="text-sm font-medium text-neutral-300 leading-relaxed max-w-xl">
+                  Engineered for Quick Commerce. I turn ambiguous 0-to-1 retail and digital verticals into high-LTV growth engines at 10-minute velocity.
+                </p>
+              </div>
+
+              <!-- Quadrant blocks matching PDF details -->
+              <div class="grid grid-cols-2 gap-4 pt-2">
+                <div class="p-4 bg-neutral-900 border border-neutral-800 rounded-2xl relative group">
+                  <span class="absolute top-3 right-3 text-lg text-neutral-600">💼</span>
+                  <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono">Experience</p>
+                  <p class="text-md font-bold text-white mt-0.5">Ex-Schbang</p>
+                  <p class="text-xs text-neutral-500 mt-1">Managed E2E clients &amp; ₹1.25 Cr Portfolio</p>
+                </div>
+                <div class="p-4 bg-neutral-900 border border-neutral-800 rounded-2xl relative group">
+                  <span class="absolute top-3 right-3 text-lg text-neutral-600">💻</span>
+                  <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono">Tech Stack</p>
+                  <p class="text-md font-bold text-white mt-0.5">API &amp; Data</p>
+                  <p class="text-xs text-neutral-500 mt-1">Ex-TransUnion CIBIL Consultant + CS Degree</p>
+                </div>
+                <div class="p-4 bg-neutral-900 border border-neutral-800 rounded-2xl relative group">
+                  <span class="absolute top-3 right-3 text-lg text-neutral-600">📈</span>
+                  <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono">Growth</p>
+                  <p class="text-md font-bold text-[#F85606] mt-0.5">+18% Users</p>
+                  <p class="text-xs text-neutral-500 mt-1">Funnel Fixer and Optimization Strategist</p>
+                </div>
+                <div class="p-4 bg-neutral-900 border border-neutral-800 rounded-2xl relative group">
+                  <span class="absolute top-3 right-3 text-lg text-neutral-600">🎓</span>
+                  <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono">Education</p>
+                  <p class="text-md font-bold text-white mt-0.5">MBA + B.Tech</p>
+                  <p class="text-xs text-neutral-500 mt-1">PGP Student at Masters' Union, MIT B.Tech</p>
+                </div>
+              </div>
+
+              <!-- Hire CTA Link -->
+              <div class="pt-2">
+                <a href="mailto:maheshwari.madhur2000@gmail.com?subject=Inquiry%20from%20Zepto%20Portfolio&body=Hi%20Madhur,%20I%20reviewed%20your%20Zepto%20Scale-up%20Playbook%20case%20study%20and%20was%20impressed." class="inline-flex items-center gap-2 px-6 py-3 bg-[#F85606] hover:bg-orange-600 active:bg-orange-700 text-white text-xs uppercase font-extrabold font-mono tracking-widest rounded-xl transition-transform hover:scale-[1.02] shadow-lg shadow-orange-600/10">
+                  <span>✉ Let's Talk Career Openings</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 8 of 8</span>
+          </footer>
+        </article>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- BOTTOM NAVIGATION CONTROLS SECTION -->
+  <footer class="bg-neutral-950 border-t border-neutral-800 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 z-50">
+    <!-- Slide list index text tracker -->
+    <div class="text-xs font-mono text-neutral-400 font-medium">
+      Viewing Page: <span id="slide-num-tracker" class="text-white font-bold">1</span> / <span class="text-neutral-500">8</span> — <span id="slide-title-tracker" class="text-neutral-300 italic">Playbook Title Page</span>
+    </div>
+    
+    <!-- Quick-select slide pager indices -->
+    <div class="flex items-center gap-1.5">
+      <button onclick="navigateSlide(-1)" class="p-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-white font-mono text-xs transition-all" title="Previous Slide [Left Arrow / Shift+Space]">
+        ← Prev
+      </button>
+      
+      <div class="hidden sm:flex items-center gap-1 font-mono text-xs">
+        <button onclick="setSlide(0)" class="pager-btn w-8 h-8 rounded bg-[#F85606] text-white font-bold border border-neutral-800">1</button>
+        <button onclick="setSlide(1)" class="pager-btn w-8 h-8 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-400">2</button>
+        <button onclick="setSlide(2)" class="pager-btn w-8 h-8 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-400">3</button>
+        <button onclick="setSlide(3)" class="pager-btn w-8 h-8 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-400">4</button>
+        <button onclick="setSlide(4)" class="pager-btn w-8 h-8 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-400">5</button>
+        <button onclick="setSlide(5)" class="pager-btn w-8 h-8 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-400">6</button>
+        <button onclick="setSlide(6)" class="pager-btn w-8 h-8 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-400">7</button>
+        <button onclick="setSlide(7)" class="pager-btn w-8 h-8 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-400">8</button>
+      </div>
+
+      <button onclick="navigateSlide(1)" class="p-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-white font-mono text-xs transition-all" title="Next Slide [Right Arrow / Space]">
+        Next →
+      </button>
+    </div>
+
+    <!-- Right link to main app portfolio -->
+    <div class="text-xs font-mono text-neutral-500">
+      Press <span class="px-1.5 py-0.5 bg-neutral-900 rounded font-bold border border-neutral-800">Esc</span> to dismiss
+    </div>
+  </footer>
+
+  <script>
+    // Slide Metadata array
+    const slidesData = [
+      { num: 1, title: "Cover Page - Sizing Scale-up Inquiry", tagline: "Title cover page" },
+      { num: 2, title: "Current India Q-Comm Battlefield Context", tagline: "Bps drops, trends & numbers" },
+      { num: 3, title: "Market Growth Forecasting & Value Prize", tagline: "Financial fee order metrics" },
+      { num: 4, title: "Three Vital Shopper Persona Segmentations", tagline: "Crisis, impulse & value shoppers" },
+      { num: 5, title: "Operational Execution & De-risking Blueprint", tagline: "Removing return burn and sizing fits" },
+      { num: 6, title: "Product Features: Doorstep VIP Trials & Fits", tagline: "Sizing toggle mock trials" },
+      { num: 7, title: "Product Features: Occasion Bundles & Clips", tagline: "AOV bundles & visual drape videos" },
+      { num: 8, title: "Career Competencies: Madhur Maheshwari", tagline: "Product roadmap to action" }
+    ];
+
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    // Load Sidebar thumbnails
+    const sidebarList = document.getElementById('sidebar-list');
+    slidesData.forEach((s, idx) => {
+      const btn = document.createElement('button');
+      btn.className = `w-full text-left p-3 rounded-xl border text-xs flex gap-3 transition-all ${
+        idx === 0 
+          ? 'bg-neutral-900 border-neutral-700/60 font-semibold text-white' 
+          : 'bg-neutral-950 hover:bg-neutral-900/40 border-transparent text-neutral-400'
+      }`;
+      btn.id = `sidebar-btn-${idx}`;
+      btn.onclick = () => setSlide(idx);
+      btn.innerHTML = `
+        <span class="font-mono text-[10px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-400 shrink-0 select-none">#${s.num}</span>
+        <div class="truncate">
+          <p class="truncate font-medium text-white">${s.title}</p>
+          <p class="text-[9px] text-neutral-500 leading-none truncate mt-0.5">${s.tagline}</p>
+        </div>
+      `;
+      sidebarList.appendChild(btn);
+    });
+
+    // Main Set slide function
+    function setSlide(index) {
+      if (index < 0 || index >= slides.length) return;
+      
+      // Update Slide Display
+      slides[currentSlideIndex].classList.remove('active');
+      slides[index].classList.add('active');
+      
+      // Update active state class on pager buttons
+      const pagers = document.querySelectorAll('.pager-btn');
+      pagers.forEach((p, idx) => {
+        if (idx === index) {
+          p.className = "pager-btn w-8 h-8 rounded bg-[#F85606] text-white font-bold border border-neutral-800";
+        } else {
+          p.className = "pager-btn w-8 h-8 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-400";
+        }
+      });
+
+      // Update sidebar highlight state
+      slidesData.forEach((_, idx) => {
+        const item = document.getElementById(`sidebar-btn-${idx}`);
+        if (item) {
+          if (idx === index) {
+            item.className = "w-full text-left p-3 rounded-xl border border-neutral-700 bg-neutral-900 font-semibold text-white";
+          } else {
+            item.className = "w-full text-left p-3 rounded-xl border border-transparent bg-neutral-950 hover:bg-neutral-900/40 text-neutral-400";
+          }
+        }
+      });
+
+      // Update Index indicator text trackers
+      currentSlideIndex = index;
+      document.getElementById('slide-num-tracker').textContent = currentSlideIndex + 1;
+      document.getElementById('slide-title-tracker').textContent = slidesData[currentSlideIndex].title;
+    }
+
+    // Prev/Next Navigators
+    function navigateSlide(direction) {
+      let nextIndex = currentSlideIndex + direction;
+      if (nextIndex < 0) nextIndex = slides.length - 1; // Wrap left
+      if (nextIndex >= slides.length) nextIndex = 0; // Wrap right
+      setSlide(nextIndex);
+    }
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        navigateSlide(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateSlide(-1);
+      } else if (e.key === 'Escape') {
+        window.close();
+      }
+    });
+
+    // Mobile Sidebar toggle menu
+    function toggleSidebar() {
+      const sidebar = document.getElementById('slide-sidebar');
+      sidebar.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
