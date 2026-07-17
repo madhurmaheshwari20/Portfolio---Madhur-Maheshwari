@@ -11,6 +11,8 @@ import ScrollProgress from './components/ScrollProgress';
 import Reveal from './components/Reveal';
 import IntelliGradeCaseStudy from './components/IntelliGradeCaseStudy';
 import ZeptoCaseStudy from './components/ZeptoCaseStudy';
+import OlaCaseStudy from './components/OlaCaseStudy';
+import FamAppCaseStudy from './components/FamAppCaseStudy';
 import { ArrowLeft } from 'lucide-react';
 import { PROJECTS, PM_BIO } from './constants';
 import { Project } from './types';
@@ -223,6 +225,10 @@ const App: React.FC = () => {
               <IntelliGradeCaseStudy />
             ) : selectedProject.id === 'zepto' ? (
               <ZeptoCaseStudy />
+            ) : selectedProject.id === 'ola-bus' ? (
+              <OlaCaseStudy />
+            ) : selectedProject.id === 'famapp' ? (
+              <FamAppCaseStudy />
             ) : (
               <>
                 <div className="space-y-6 text-center mb-16">

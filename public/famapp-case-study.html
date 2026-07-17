@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FamApp GTM Strategy | Madhur Maheshwari</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter, JetBrains Mono, Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-outfit {
+      font-family: 'Outfit', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .fam-orange {
+      background-color: #FFA726;
+    }
+    .fam-text-orange {
+      color: #FFA726;
+    }
+    .fam-border-orange {
+      border-color: #FFA726;
+    }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 flex flex-col justify-between min-h-screen">
+
+  <!-- TOP DECK CONTROLLER HEADER -->
+  <header class="bg-neutral-950/80 backdrop-blur border-b border-neutral-800 px-6 py-4 flex justify-between items-center z-50">
+    <div class="flex items-center gap-3">
+      <div class="bg-black border border-neutral-800 px-3 py-1 rounded text-[#FFA726] font-extrabold text-sm tracking-wide uppercase font-outfit shadow-sm flex items-center gap-1.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#FFA726] animate-pulse"></span>
+        <span>famapp</span>
+      </div>
+      <div>
+        <h1 class="text-xs font-bold uppercase tracking-widest text-neutral-400">GTM Strategy & Adoption</h1>
+        <p class="text-[10px] text-neutral-500 font-mono">Madhur Maheshwari • Trio Marketing Challenge</p>
+      </div>
+    </div>
+    
+    <!-- Keyboard Shortcut Help Banner -->
+    <div class="hidden md:flex items-center gap-2 text-xs text-neutral-400 bg-neutral-900/60 px-3.5 py-1.5 rounded-full border border-neutral-800/80 font-mono">
+      <span class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-[9px]">←</span>
+      <span class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-[9px]">→</span>
+      <span>or Space to navigate</span>
+    </div>
+
+    <!-- Right Controls: Close Tab -->
+    <div class="flex items-center gap-4">
+      <button onclick="toggleSidebar()" class="lg:hidden p-2 rounded bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-white" title="All Slides List">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a href="javascript:window.close()" class="px-3 py-2 text-xs font-medium bg-neutral-900 hover:bg-neutral-800 text-neutral-300 rounded border border-neutral-800 flex items-center gap-1.5 group transition-colors">
+        <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <span>Close Tab</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- WORKSPACE GRID: Left Thumbnails Sidebar (Desktop), Main Active Slide Frame -->
+  <div class="flex flex-1 relative overflow-hidden">
+    
+    <!-- LEFT SIDEBAR: Index / Slide Select List -->
+    <aside id="slide-sidebar" class="hidden lg:block w-72 bg-neutral-950 border-r border-neutral-800 shrink-0 p-5 overflow-y-auto max-h-[calc(100vh-140px)]">
+      <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 mb-4 font-mono">Deck Directory</h3>
+      <div class="space-y-3 font-outfit" id="sidebar-list">
+        <!-- Generated inside inline JS below for syncing -->
+      </div>
+    </aside>
+
+    <!-- MAIN SLIDE CANVAS CONTAINER -->
+    <main class="flex-1 flex items-center justify-center p-4 md:p-8 overflow-y-auto max-h-[calc(100vh-140px)]">
+      <div class="w-full max-w-6xl aspect-[16/9] bg-neutral-950 rounded-3xl border border-neutral-800/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col relative transition-transform duration-300">
+        
+        <!-- ======================= SLIDE 1: COVER SLIDE ======================= -->
+        <article class="slide active h-full flex flex-col justify-center items-center p-12 text-center relative overflow-hidden bg-gradient-to-br from-[#1f1203] via-[#0c0601] to-[#010103]">
+          <!-- Abstract Graphic background -->
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(251,146,60,0.1),transparent_40%)]"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.02),transparent_40%)]"></div>
+          
+          <div class="space-y-10 z-10 max-w-4xl">
+            <!-- Brand icon -->
+            <div class="inline-flex flex-col items-center gap-1.5 animate-bounce">
+              <span class="bg-black text-[#FFA726] border border-[#FFA726]/30 px-8 py-3 rounded-2xl text-[24px] font-black tracking-widest uppercase italic font-outfit shadow-2xl">famapp</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight font-outfit">
+              FamApp by Trio <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFA726] via-white to-neutral-400">(Marketing One Day Challenge)</span>
+            </h2>
+            
+            <p class="text-sm md:text-base text-neutral-300 leading-relaxed max-w-2xl mx-auto">
+              Go-to-Market (GTM) strategies aimed at lowering user acquisition friction, overcoming parental consent drop-offs, and cultivating daily lifestyle stickiness for India's premier teen financial application.
+            </p>
+            
+            <div class="pt-4">
+              <div class="w-24 h-[3px] bg-[#FFA726] mx-auto mb-6 rounded"></div>
+              <p class="text-lg md:text-xl font-medium tracking-wide text-white/90 uppercase font-outfit">
+                Masters' Union - Gurugram
+              </p>
+              <p class="text-xs text-neutral-400 font-mono mt-1">Presented by Akash Maurya, Dhwanil Mehta, Harsh Lathi, Madhur Maheshwari</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ======================= SLIDE 2: EXECUTIVE SUMMARY ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-4">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 02 // EXECUTIVE SUMMARY</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">FamApp Strategic Summary</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">At A Glance</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 my-auto overflow-y-auto pt-2">
+            
+            <!-- Problem Statement -->
+            <div class="p-5 bg-neutral-900/60 border border-neutral-800 rounded-xl space-y-2">
+              <h3 class="text-xs font-bold text-[#FFA726] uppercase font-mono">⚠️ Problem Statement</h3>
+              <ul class="text-[11px] text-neutral-300 space-y-1.5 list-disc pl-3">
+                <li>Onboarding drop-offs</li>
+                <li>Low brand awareness</li>
+                <li>Age-based design mismatch</li>
+                <li>Parental consent hurdles</li>
+                <li>UX friction (OTP, crashes)</li>
+              </ul>
+            </div>
+
+            <!-- Key Findings -->
+            <div class="p-5 bg-neutral-900/60 border border-neutral-800 rounded-xl space-y-2">
+              <h3 class="text-xs font-bold text-[#FFA726] uppercase font-mono">📊 Key Findings</h3>
+              <ul class="text-[11px] text-neutral-300 space-y-1 bg-neutral-950 p-2.5 rounded border border-neutral-800/80">
+                <li><strong>Onboarding score:</strong> 3.8/5</li>
+                <li><strong>App Relevancy:</strong> 3.4/5</li>
+                <li class="mt-1 pt-1 border-t border-neutral-800 text-neutral-400">Major friction points remain in KYC, OTP validation, and consent loops.</li>
+              </ul>
+            </div>
+
+            <!-- GTM Pillars -->
+            <div class="p-5 bg-neutral-900/60 border border-neutral-800 rounded-xl space-y-2">
+              <h3 class="text-xs font-bold text-[#FFA726] uppercase font-mono">🚀 GTM Strategies</h3>
+              <ul class="text-[11px] text-neutral-300 space-y-1 font-semibold">
+                <li>📍 FamZones (Privileges)</li>
+                <li>✨ Spark Grant (Aspirations)</li>
+                <li>🎟️ Fest-Pay (College Fests)</li>
+                <li>👥 Squad Wallet (Group Spend)</li>
+              </ul>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="p-5 bg-neutral-900/60 border border-[#FFA726]/40 rounded-xl space-y-2 bg-amber-950/10">
+              <h3 class="text-xs font-bold text-[#FFA726] uppercase font-mono">💡 Recommendations</h3>
+              <div class="text-[10px] text-neutral-300 space-y-2">
+                <p><strong>Minors (&lt;18):</strong> Daily use-cases (transit, gaming) and gamified finance education hub.</p>
+                <p><strong>Majors (18+):</strong> Eliminate joining fees; implement reward-based KYC completion.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 2 of 10</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 3: COMPANY OVERVIEW ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 03 // CORPORATE DNA</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Company Overview & Traction</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Scale Metrics</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto pt-2 overflow-y-auto">
+            
+            <div class="lg:col-span-7 space-y-4 text-xs">
+              <p class="leading-relaxed text-neutral-300 text-[13px]">
+                <strong>FamApp by Trio</strong> is a premier digital provider of teen and young-adult spending accounts integrated with custom UPI IDs and numberless prepaid cards, facilitating secure biometric authentication.
+              </p>
+              
+              <ul class="space-y-2 text-neutral-400">
+                <li class="flex items-start gap-2">
+                  <span class="text-[#FFA726] font-bold">•</span>
+                  <span>Allows frictionless budgeting, expense tracking, and transparent savings, preserving clutter-free primary bank statements for parents.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#FFA726] font-bold">•</span>
+                  <span>Provides customized reward structures, cashback, brand discounts, and security-hardened cards.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="lg:col-span-5 grid grid-cols-2 gap-3 text-[10px] font-mono">
+              <div class="bg-neutral-900/60 p-3 rounded-lg border border-neutral-800">
+                <p class="text-neutral-500 uppercase text-[8px]">Headquarters</p>
+                <p class="text-white font-bold text-xs">Bengaluru, India</p>
+              </div>
+              <div class="bg-neutral-900/60 p-3 rounded-lg border border-neutral-800">
+                <p class="text-neutral-500 uppercase text-[8px]">Founders</p>
+                <p class="text-white font-bold text-xs truncate">Sambhav Jain, Kush Taneja</p>
+              </div>
+              <div class="bg-neutral-900/60 p-3 rounded-lg border border-neutral-800">
+                <p class="text-neutral-500 uppercase text-[8px]">Traction</p>
+                <p class="text-[#FFA726] font-bold text-xs">12M+ Users Onboarded</p>
+              </div>
+              <div class="bg-neutral-900/60 p-3 rounded-lg border border-neutral-800">
+                <p class="text-neutral-500 uppercase text-[8px]">Active Transacting</p>
+                <p class="text-[#FFA726] font-bold text-xs">6M+ Monthly Active</p>
+              </div>
+              <div class="bg-neutral-900/60 p-3 rounded-lg border border-neutral-800">
+                <p class="text-neutral-500 uppercase text-[8px]">Revenue Model</p>
+                <p class="text-white font-bold text-xs">INR 24.3 Cr (Mar '24)</p>
+              </div>
+              <div class="bg-neutral-900/60 p-3 rounded-lg border border-neutral-800">
+                <p class="text-neutral-500 uppercase text-[8px]">Core Target Segment</p>
+                <p class="text-emerald-400 font-bold text-xs">Age 16 - 20</p>
+              </div>
+            </div>
+
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 3 of 10</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 4: PROBLEM STATEMENT ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 04 // FRICTION MATRIX</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Core Problem Statement</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Adoption Barriers</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto pt-2 overflow-y-auto">
+            
+            <div class="p-4 bg-neutral-900/40 border border-neutral-800 rounded-xl space-y-1">
+              <h4 class="text-xs font-bold text-[#FFA726] uppercase font-outfit">Onboarding Challenges</h4>
+              <p class="text-[11px] text-neutral-400 leading-relaxed">
+                18+ users face an unnecessarily complex registration funnel. Redundant document requests cause high drop-offs prior to KYC completion.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/40 border border-neutral-800 rounded-xl space-y-1">
+              <h4 class="text-xs font-bold text-[#FFA726] uppercase font-outfit">Brand Awareness Limits</h4>
+              <p class="text-[11px] text-neutral-400 leading-relaxed">
+                Many potential users remain unaware of FamApp's unique feature benefits (like numberless cards), hindering compounding peer viral loops.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/40 border border-neutral-800 rounded-xl space-y-1">
+              <h4 class="text-xs font-bold text-[#FFA726] uppercase font-outfit">Age Bracket Disconnect</h4>
+              <p class="text-[11px] text-neutral-400 leading-relaxed">
+                A single messaging model fails to distinguish between younger teens (16-17) seeking pocket-money fun, and older youth (18-20) seeking formal credit tools.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/40 border border-neutral-800 rounded-xl space-y-1">
+              <h4 class="text-xs font-bold text-[#FFA726] uppercase font-outfit">Trust & Security Doubts</h4>
+              <p class="text-[11px] text-neutral-400 leading-relaxed">
+                Complex minor accounts and rigorous identity/parental validations scare away privacy-conscious parents.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/40 border border-neutral-800 rounded-xl space-y-1">
+              <h4 class="text-xs font-bold text-[#FFA726] uppercase font-outfit">Uniform GTM Mismatch</h4>
+              <p class="text-[11px] text-neutral-400 leading-relaxed">
+                A uniform user acquisition strategy neglects regional, social, and functional differences across colleges and schools.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/40 border border-neutral-800 rounded-xl space-y-1">
+              <h4 class="text-xs font-bold text-[#FFA726] uppercase font-outfit">Poor Platform Stability</h4>
+              <p class="text-[11px] text-neutral-400 leading-relaxed">
+                Frequent OTP transmission delays, app freezes, and sign-in errors trigger immediate drop-offs during highly critical first impressions.
+              </p>
+            </div>
+
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 4 of 10</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 5: METHODOLOGY / APPROACH ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 05 // RESEARCH INSIGHTS</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">User-Centric Research Approach</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Methodology</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-4 my-auto pt-2 overflow-y-auto">
+            
+            <div class="p-4 bg-neutral-900/30 border border-neutral-800 rounded-xl space-y-1.5 text-center">
+              <span class="text-2xl">👥</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">Who We Surveyed</h4>
+              <p class="text-[10px] text-neutral-400 leading-relaxed">
+                Respondents aged 15-20+ covering diverse regional life-stages: school, college, and young workforce.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/30 border border-neutral-800 rounded-xl space-y-1.5 text-center">
+              <span class="text-2xl">🗺️</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">Behavior Mapping</h4>
+              <p class="text-[10px] text-neutral-400 leading-relaxed">
+                Compared Gen Z habits: peer payments, bill splits, rewards hunting, and pocket-money budgeting.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/30 border border-neutral-800 rounded-xl space-y-1.5 text-center">
+              <span class="text-2xl">⚡</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">Friction Audits</h4>
+              <p class="text-[10px] text-neutral-400 leading-relaxed">
+                Tracked registration logs to compute friction scores and pinpoint onboarding blockages.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/30 border border-neutral-800 rounded-xl space-y-1.5 text-center">
+              <span class="text-2xl">🗳️</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">Feature Polling</h4>
+              <p class="text-[10px] text-neutral-400 leading-relaxed">
+                Ranked user enthusiasm for debit cards, group splitting, automated saving goals, and gamified education.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/30 border border-neutral-800 rounded-xl space-y-1.5 text-center">
+              <span class="text-2xl">📢</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">Relevance Check</h4>
+              <p class="text-[10px] text-neutral-400 leading-relaxed">
+                Evaluated organic net-advocacy (NPS) scores to test referral viability in social circles.
+              </p>
+            </div>
+
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 5 of 10</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 6: SURVEY FINDINGS ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 06 // USER RESEARCH METRICS</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Core Survey Findings (N=47)</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Data Breakdown</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 my-auto pt-2 overflow-y-auto">
+            
+            <!-- Left Data Charts (represented in text bars) -->
+            <div class="lg:col-span-6 space-y-3">
+              <div class="space-y-1.5">
+                <h4 class="text-[10px] font-bold text-neutral-400 font-mono uppercase tracking-wider">What do you mostly use money apps for?</h4>
+                <div class="space-y-1 font-mono text-[9px]">
+                  <div class="flex items-center justify-between"><span>Payments</span><span class="text-white font-bold">38 / 47</span></div>
+                  <div class="w-full bg-neutral-900 h-1.5 rounded"><div class="bg-[#FFA726] h-full rounded" style="width: 80%"></div></div>
+                  
+                  <div class="flex items-center justify-between"><span>Splitting with friends</span><span class="text-white font-bold">15 / 47</span></div>
+                  <div class="w-full bg-neutral-900 h-1.5 rounded"><div class="bg-[#FFA726] h-full rounded" style="width: 32%"></div></div>
+
+                  <div class="flex items-center justify-between"><span>Saving money</span><span class="text-white font-bold">11 / 47</span></div>
+                  <div class="w-full bg-neutral-900 h-1.5 rounded"><div class="bg-[#FFA726] h-full rounded" style="width: 23%"></div></div>
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <h4 class="text-[10px] font-bold text-neutral-400 font-mono uppercase tracking-wider">What stopped you from signing up?</h4>
+                <div class="space-y-1 font-mono text-[9px]">
+                  <div class="flex items-center justify-between"><span>KYC / ID related issues</span><span class="text-amber-400 font-bold">15 / 47</span></div>
+                  <div class="w-full bg-neutral-900 h-1.5 rounded"><div class="bg-amber-400 h-full rounded" style="width: 32%"></div></div>
+                  
+                  <div class="flex items-center justify-between"><span>App / OTP Errors</span><span class="text-amber-400 font-bold">13 / 47</span></div>
+                  <div class="w-full bg-neutral-900 h-1.5 rounded"><div class="bg-amber-400 h-full rounded" style="width: 27%"></div></div>
+
+                  <div class="flex items-center justify-between"><span>Parental Consent Hurdles</span><span class="text-amber-400 font-bold">11 / 47</span></div>
+                  <div class="w-full bg-neutral-900 h-1.5 rounded"><div class="bg-amber-400 h-full rounded" style="width: 23%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Segment Overview -->
+            <div class="lg:col-span-6 bg-neutral-900/40 border border-neutral-800 rounded-xl p-4 flex flex-col justify-between space-y-3">
+              <div class="p-3 bg-neutral-950 rounded-lg border border-neutral-800/80 space-y-1.5 text-center">
+                <div class="text-[#FFA726] font-mono text-xs font-bold uppercase tracking-widest">Satisfaction Scorecard</div>
+                <div class="flex justify-around items-center pt-1.5">
+                  <div>
+                    <span class="text-xl font-black text-white block">3.8 / 5</span>
+                    <span class="text-[8px] text-neutral-500 uppercase tracking-widest">Onboarding rating</span>
+                  </div>
+                  <div class="w-px h-8 bg-neutral-800"></div>
+                  <div>
+                    <span class="text-xl font-black text-[#FFA726] block">3.4 / 5</span>
+                    <span class="text-[8px] text-neutral-500 uppercase tracking-widest">App relevancy</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-1 font-sans text-[10px]">
+                <p class="font-bold text-white uppercase text-[8px] tracking-widest text-[#FFA726] font-mono">Preferred Features</p>
+                <p class="text-neutral-300">
+                  Gen Z strongly values the <strong class="text-white">spending tracker (23%)</strong> and <strong class="text-white">P2P payments (20%)</strong>. This proves financial utility, rather than generic gamification, drives long-term usage.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 6 of 10</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 7: PATH ROADBLOCKS ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 07 // JOURNEY DIAGNOSTICS</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Major Roadblocks & Drop-off Points</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Onboarding Funnel</span>
+          </div>
+
+          <!-- Flow of barriers -->
+          <div class="grid grid-cols-1 md:grid-cols-6 gap-3 my-auto pt-2 overflow-y-auto font-mono text-[9px]">
+            
+            <div class="p-3 bg-neutral-900/60 border border-neutral-800 rounded-lg space-y-1">
+              <span class="text-xs font-bold text-[#FFA726] bg-neutral-950 px-1.5 py-0.5 rounded">01</span>
+              <p class="font-bold text-white uppercase text-[8px] font-sans">Phone SMS Verify</p>
+              <p class="text-neutral-400"><strong>Parental Hurdle:</strong> Parents are busy, hesitant to share their critical credentials, or lack digital know-how.</p>
+            </div>
+
+            <div class="p-3 bg-neutral-900/60 border border-neutral-800 rounded-lg space-y-1">
+              <span class="text-xs font-bold text-[#FFA726] bg-neutral-950 px-1.5 py-0.5 rounded">02</span>
+              <p class="font-bold text-white uppercase text-[8px] font-sans">Basic Details</p>
+              <p class="text-neutral-400"><strong>Doc Friction:</strong> Teens lack rapid access to documents. Aadhaar linkage to a different mobile number triggers immediate blockages.</p>
+            </div>
+
+            <div class="p-3 bg-neutral-900/60 border border-neutral-800 rounded-lg space-y-1">
+              <span class="text-xs font-bold text-[#FFA726] bg-neutral-950 px-1.5 py-0.5 rounded">03</span>
+              <p class="font-bold text-white uppercase text-[8px] font-sans">Source Funding</p>
+              <p class="text-neutral-400"><strong>Tech Drops:</strong> App freezes on lower bandwidth or fails during multi-stage bank-redirect steps, forcing permanent abandonment.</p>
+            </div>
+
+            <div class="p-3 bg-neutral-900/60 border border-neutral-800 rounded-lg space-y-1">
+              <span class="text-xs font-bold text-[#FFA726] bg-neutral-950 px-1.5 py-0.5 rounded">04</span>
+              <p class="font-bold text-white uppercase text-[8px] font-sans">Aadhaar KYC</p>
+              <p class="text-neutral-400"><strong>No Instant Hook:</strong> Users sign up out of curiosity but abandon the flow because there's no immediate reward to fund and transact.</p>
+            </div>
+
+            <div class="p-3 bg-neutral-900/60 border border-neutral-800 rounded-lg space-y-1">
+              <span class="text-xs font-bold text-[#FFA726] bg-neutral-950 px-1.5 py-0.5 rounded">05</span>
+              <p class="font-bold text-white uppercase text-[8px] font-sans">Selfie verify</p>
+              <p class="text-neutral-400"><strong>"Now What?" Loop:</strong> Path to add initial deposit re-introduces parental authorization screens, killing autonomous utility.</p>
+            </div>
+
+            <div class="p-3 bg-neutral-900 border border-[#FFA726]/30 rounded-lg space-y-1 bg-amber-950/15">
+              <span class="text-xs font-bold text-[#FFA726] bg-neutral-950 px-1.5 py-0.5 rounded">06</span>
+              <p class="font-bold text-white uppercase text-[8px] font-sans text-[#FFA726]">Add Email / Finish</p>
+              <p class="text-neutral-300"><strong>Value Prop Gap:</strong> High-friction KYC finishes without presenting any "wow" features or special offers, offering little incentive to return.</p>
+            </div>
+
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 7 of 10</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 8: SEGMENT RECOMMENDATIONS ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 text-white relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 08 // RECOMMENDATION GRID</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Age-Segmented Product Recommendations</h2>
+            </div>
+            <span class="px-3 py-1 bg-black/40 border border-[#FFA726]/30 rounded font-mono text-xs text-[#FFA726]">Minor vs Major</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto pt-2 overflow-y-auto text-[10px] font-mono">
+            
+            <!-- Minor Users (< 18) -->
+            <div class="p-4 bg-neutral-900/60 border border-neutral-800 rounded-xl space-y-3">
+              <h3 class="text-xs font-bold text-[#FFA726] uppercase font-outfit flex items-center gap-1.5">
+                <span>🧒</span>
+                <span>Minor Users — Below 18 Years</span>
+              </h3>
+
+              <div class="space-y-2 text-[9px]">
+                <div class="p-2 bg-neutral-950 border border-neutral-800 rounded">
+                  <p class="text-white font-bold">1. Daily Use Case Expansion</p>
+                  <p class="text-neutral-400 mt-0.5">Add metro/bus ticket booking and digital transit card integrations to make FamApp a daily utility.</p>
+                </div>
+                <div class="p-2 bg-neutral-950 border border-neutral-800 rounded">
+                  <p class="text-white font-bold">2. Financial Literacy Hub</p>
+                  <p class="text-neutral-400 mt-0.5">Introduce gamified lessons and quizzes within the app to bypass rigid investment regulations safely.</p>
+                </div>
+                <div class="p-2 bg-neutral-950 border border-neutral-800 rounded">
+                  <p class="text-white font-bold">3. Peer Group Expense Splits</p>
+                  <p class="text-neutral-400 mt-0.5">Integrate smart in-app group splitting and settlements to spark organic peer recommendations.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Major Users (18+) -->
+            <div class="p-4 bg-neutral-900/60 border border-neutral-800 rounded-xl space-y-3 bg-amber-950/5">
+              <h3 class="text-xs font-bold text-[#FFA726] uppercase font-outfit flex items-center gap-1.5">
+                <span>🎓</span>
+                <span>Major Users — 18 Years & Over</span>
+              </h3>
+
+              <div class="space-y-2 text-[9px]">
+                <div class="p-2 bg-neutral-950 border border-neutral-800 rounded">
+                  <p class="text-white font-bold">1. Frictionless Phone Signup</p>
+                  <p class="text-neutral-400 mt-0.5">Direct phone signup with optional wallet activation to replace the mandatory ₹99 KYC fee with partner rewards.</p>
+                </div>
+                <div class="p-2 bg-neutral-950 border border-neutral-800 rounded">
+                  <p class="text-white font-bold">2. Credit & Utility Enablement</p>
+                  <p class="text-neutral-400 mt-0.5">Add loan repayment channels, personal credit options, and utility bill splits to boost daily retention.</p>
+                </div>
+                <div class="p-2 bg-neutral-950 border border-neutral-800 rounded">
+                  <p class="text-white font-bold">3. Co-Branded Cards</p>
+                  <p class="text-neutral-400 mt-0.5">Launch premium credit and debit card partnerships with major retail banks to lock in long-term loyalty.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 8 of 10</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 9: GTM STRATEGIES ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 text-white relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 09 // GTM MATRIX</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Go-To-Market Execution Blueprint</h2>
+            </div>
+            <span class="px-3 py-1 bg-black/40 border border-[#FFA726]/30 rounded font-mono text-xs text-[#FFA726]">Proposed Proposals</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 my-auto pt-2 overflow-y-auto">
+            
+            <div class="p-4 bg-neutral-900/60 border border-neutral-800 rounded-xl space-y-2 hover:border-neutral-700 transition-colors">
+              <span class="text-xs font-bold font-mono text-[#FFA726] bg-neutral-950 px-2 py-0.5 rounded">FamZones</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">Student Privilege Zones</h4>
+              <p class="text-[10px] text-neutral-400 leading-relaxed">
+                Establish deal zones around major college cafes with instant group discount rewards. Repositions FamApp from a standard UPI utility to a core student lifestyle companion.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/60 border border-neutral-800 rounded-xl space-y-2 hover:border-neutral-700 transition-colors">
+              <span class="text-xs font-bold font-mono text-[#FFA726] bg-neutral-950 px-2 py-0.5 rounded">Spark Grant</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">Angel for Dreams</h4>
+              <p class="text-[10px] text-neutral-400 leading-relaxed">
+                Introduce a ₹1 Lakh monthly grant for student projects, allowing teams to enter via Reels and vote in-app. Positions the brand as an investor in students' futures, building organic advocacy.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/60 border border-neutral-800 rounded-xl space-y-2 hover:border-neutral-700 transition-colors">
+              <span class="text-xs font-bold font-mono text-[#FFA726] bg-neutral-950 px-2 py-0.5 rounded">Fest-Pay</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">College Fest Wallet</h4>
+              <p class="text-[10px] text-neutral-400 leading-relaxed">
+                Become the exclusive digital wallet partner for university festivals, providing express entry lanes and fast checkout rewards. Drives rapid, high-density on-campus adoption over 2-3 days.
+              </p>
+            </div>
+
+            <div class="p-4 bg-neutral-900/60 border border-[#FFA726]/30 rounded-xl space-y-2 bg-amber-950/10 hover:border-[#FFA726]/60 transition-colors">
+              <span class="text-xs font-bold font-mono text-[#FFA726] bg-neutral-950 px-2 py-0.5 rounded">Squad Wallet</span>
+              <h4 class="text-xs font-bold text-white uppercase font-outfit">Easy Group Spending</h4>
+              <p class="text-[10px] text-neutral-300 leading-relaxed">
+                Add friends-pool shared balances with automated transaction logging. Solves the friction of separate split utilities, driving repeating active daily usage and strong social group lock-in.
+              </p>
+            </div>
+
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 9 of 10</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 10: THANK YOU ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#FFA726] font-mono block mb-1">PAGE 10 // CONCLUDING</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Project Concluded</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Collaboration</span>
+          </div>
+
+          <div class="text-center my-auto space-y-5">
+            <h3 class="text-3xl font-black font-outfit text-white uppercase">Thank You!</h3>
+            <p class="text-xs text-neutral-400 max-w-md mx-auto leading-relaxed">
+              For queries, strategic collaboration, or potential partnership alignments, please reach out or check our project files.
+            </p>
+            
+            <div class="inline-block bg-neutral-900 border border-neutral-800 rounded-2xl p-5 text-left max-w-sm mx-auto font-mono text-[10px] space-y-1.5 text-neutral-300">
+              <p class="font-bold text-[#FFA726] text-xs font-sans uppercase tracking-wider mb-2 border-b border-neutral-800 pb-1.5">Team Members (Section A/D):</p>
+              <p>• Akash Maurya — Section A</p>
+              <p>• Madhur Maheshwari — Section A</p>
+              <p>• Piyush Agrawalla — Section A</p>
+              <p>• Suyesh Hurkat — Section A</p>
+              <p>• Shreya Samar — Section D</p>
+            </div>
+          </div>
+
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 10 of 10</span>
+          </footer>
+        </article>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- BOTTOM DECK BAR CONTROLLER -->
+  <footer class="bg-neutral-950 border-t border-neutral-800 px-6 py-4 flex justify-between items-center z-50">
+    <div class="flex items-center gap-3">
+      <button onclick="prevSlide()" class="p-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-950 border border-neutral-800 text-white transition-colors" title="Previous Slide">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button onclick="nextSlide()" class="p-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-950 border border-neutral-800 text-white transition-colors" title="Next Slide">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <span id="slide-indicator" class="text-xs text-neutral-400 font-mono font-medium tracking-wide">Slide 1 of 10</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Direct presentation view progress bar -->
+      <div class="hidden sm:block w-48 h-1 bg-neutral-800 rounded-full overflow-hidden">
+        <div id="slide-progress" class="h-full bg-[#FFA726] rounded-full transition-all duration-300" style="width: 10%"></div>
+      </div>
+      <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest hidden sm:inline-block font-semibold">GTM Pitch Deck</span>
+    </div>
+  </footer>
+
+  <script>
+    // Slide registry
+    const slidesData = [
+      { id: 1, title: "Cover Slide", desc: "FamApp Trio Marketing Strategy Pitch" },
+      { id: 2, title: "Executive Summary", desc: "Quick problem statement, findings, and GTM matrix" },
+      { id: 3, title: "Company Overview", desc: "Corporate metrics, user base, and target segment" },
+      { id: 4, title: "Core Problems", desc: "Friction matrices, brand awareness limits, and OTP instability" },
+      { id: 5, title: "Research Approach", desc: "Adoption strategy audit methodology" },
+      { id: 6, title: "Survey Findings", desc: "Core responses (N=47) and feature rankings" },
+      { id: 7, title: "Roadblocks & Drop-offs", desc: "Onboarding friction points mapping" },
+      { id: 8, title: "Segment Recommendations", desc: "Minor vs Major age bracket tailored ideas" },
+      { id: 9, title: "GTM Strategies Blueprint", desc: "FamZones, Spark Grant, Fest-Pay, and Squad Wallet" },
+      { id: 10, title: "Concluding Collaboration", desc: "Project thank you page and team directory" }
+    ];
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const indicator = document.getElementById('slide-indicator');
+    const progress = document.getElementById('slide-progress');
+    const sidebarList = document.getElementById('sidebar-list');
+
+    // Build sidebar thumbnails list
+    function renderSidebar() {
+      sidebarList.innerHTML = '';
+      slidesData.forEach((slide, i) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => selectSlide(i);
+        btn.className = `w-full text-left p-3.5 rounded-xl border transition-all duration-200 flex flex-col gap-1 ${
+          i === currentSlide 
+            ? 'bg-[#FFA726]/10 border-[#FFA726]/40 text-[#FFA726]' 
+            : 'bg-neutral-900/40 border-neutral-800/80 hover:bg-neutral-900/90 text-neutral-300'
+        }`;
+        
+        btn.innerHTML = `
+          <div class="flex justify-between items-center font-mono text-[9px] uppercase tracking-wider">
+            <span class="${i === currentSlide ? 'text-[#FFA726]' : 'text-neutral-500'}">Page 0${slide.id}</span>
+            <span class="w-1.5 h-1.5 rounded-full ${i === currentSlide ? 'bg-[#FFA726]' : 'bg-transparent'}"></span>
+          </div>
+          <h4 class="text-xs font-bold truncate leading-tight">${slide.title}</h4>
+          <p class="text-[10px] leading-tight opacity-70 line-clamp-1">${slide.desc}</p>
+        `;
+        sidebarList.appendChild(btn);
+      });
+    }
+
+    function selectSlide(index) {
+      if (index < 0 || index >= slides.length) return;
+      
+      // Update active classes
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+      
+      // Update presentation indicators
+      indicator.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+      if (progress) {
+        progress.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+      }
+      
+      renderSidebar();
+    }
+
+    function prevSlide() {
+      selectSlide(currentSlide - 1);
+    }
+
+    function nextSlide() {
+      selectSlide(currentSlide + 1);
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('slide-sidebar');
+      sidebar.classList.toggle('hidden');
+    }
+
+    // Keyboard controls
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      }
+    });
+
+    // Initial load
+    renderSidebar();
+  </script>
+</body>
+</html>

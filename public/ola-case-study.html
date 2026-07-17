@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ola Intercity Bus Strategy | Madhur Maheshwari</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter, JetBrains Mono, Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-outfit {
+      font-family: 'Outfit', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .ola-green {
+      background-color: #D2F129;
+    }
+    .ola-text-green {
+      color: #D2F129;
+    }
+    .ola-border-green {
+      border-color: #D2F129;
+    }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 flex flex-col justify-between min-h-screen">
+
+  <!-- TOP DECK CONTROLLER HEADER -->
+  <header class="bg-neutral-950/80 backdrop-blur border-b border-neutral-800 px-6 py-4 flex justify-between items-center z-50">
+    <div class="flex items-center gap-3">
+      <div class="bg-black border border-neutral-800 px-3 py-1 rounded text-[#D2F129] font-extrabold text-sm tracking-wide uppercase font-outfit shadow-sm flex items-center gap-1.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#D2F129] animate-pulse"></span>
+        <span>ola</span>
+      </div>
+      <div>
+        <h1 class="text-xs font-bold uppercase tracking-widest text-neutral-400">Intercity Long-Distance Bus</h1>
+        <p class="text-[10px] text-neutral-500 font-mono">Madhur Maheshwari • Strategic Product Opportunity</p>
+      </div>
+    </div>
+    
+    <!-- Keyboard Shortcut Help Banner -->
+    <div class="hidden md:flex items-center gap-2 text-xs text-neutral-400 bg-neutral-900/60 px-3.5 py-1.5 rounded-full border border-neutral-800/80 font-mono">
+      <span class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-[9px]">←</span>
+      <span class="px-1.5 py-0.5 bg-neutral-800 border border-neutral-700 rounded text-[9px]">→</span>
+      <span>or Space to navigate</span>
+    </div>
+
+    <!-- Right Controls: Back to Portfolio & Fullscreen Info -->
+    <div class="flex items-center gap-4">
+      <button onclick="toggleSidebar()" class="lg:hidden p-2 rounded bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-white" title="All Slides List">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a href="javascript:window.close()" class="px-3 py-2 text-xs font-medium bg-neutral-900 hover:bg-neutral-800 text-neutral-300 rounded border border-neutral-800 flex items-center gap-1.5 group transition-colors">
+        <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <span>Close Tab</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- WORKSPACE GRID: Left Thumbnails Sidebar (Desktop), Main Active Slide Frame -->
+  <div class="flex flex-1 relative overflow-hidden">
+    
+    <!-- LEFT SIDEBAR: Index / Slide Select List -->
+    <aside id="slide-sidebar" class="hidden lg:block w-72 bg-neutral-950 border-r border-neutral-800 shrink-0 p-5 overflow-y-auto max-h-[calc(100vh-140px)]">
+      <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 mb-4 font-mono">Presenting Deck Pages</h3>
+      <div class="space-y-3 font-outfit" id="sidebar-list">
+        <!-- Generated inside inline JS below for syncing -->
+      </div>
+    </aside>
+
+    <!-- MAIN SLIDE CANVAS CONTAINER -->
+    <main class="flex-1 flex items-center justify-center p-4 md:p-8 overflow-y-auto max-h-[calc(100vh-140px)]">
+      <div class="w-full max-w-6xl aspect-[16/9] bg-neutral-950 rounded-3xl border border-neutral-800/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col relative transition-transform duration-300">
+        
+        <!-- ======================= SLIDE 1: COVER SLIDE ======================= -->
+        <article class="slide active h-full flex flex-col justify-center items-center p-12 text-center relative overflow-hidden bg-gradient-to-br from-[#1c2206] via-[#0b0c01] to-[#010103]">
+          <!-- Abstract Graphic background -->
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(210,241,41,0.12),transparent_40%)]"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.03),transparent_40%)]"></div>
+          
+          <div class="space-y-10 z-10 max-w-4xl">
+            <!-- Brand icon -->
+            <div class="inline-flex flex-col items-center gap-1.5 animate-bounce">
+              <span class="bg-black text-[#D2F129] border border-[#D2F129]/30 px-8 py-3 rounded-2xl text-[24px] font-black tracking-widest uppercase italic font-outfit shadow-2xl">ola</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight font-outfit">
+              Should Ola Enter the <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D2F129] via-white to-neutral-400">Long Distance Bus Market?</span>
+            </h2>
+            
+            <p class="text-sm md:text-base text-neutral-300 leading-relaxed max-w-2xl mx-auto">
+              Analyzing the strategic opportunity for Ola to expand from intracity rides to intercity bus booking and operations, competing with platforms like RedBus. This deep-dive assessment explores market potential, operational challenges, product strategy, and go-to-market execution.
+            </p>
+            
+            <div class="pt-4">
+              <div class="w-24 h-[3px] bg-[#D2F129] mx-auto mb-6 rounded"></div>
+              <p class="text-lg md:text-xl font-medium tracking-wide text-white/90 uppercase font-outfit">
+                Madhur Maheshwari
+              </p>
+              <p class="text-xs text-neutral-400 font-mono mt-1">Product Leader & Mobility Innovator</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ======================= SLIDE 2: UNTAPPED OPPORTUNITY ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-4">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#D2F129] font-mono block mb-1">PAGE 02 // MARKET ASSESSMENT</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Untapped Opportunity in India's Intercity Travel Market</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">Market Dynamics</span>
+          </div>
+
+          <!-- Main Layout Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto overflow-y-auto">
+            
+            <!-- Left Info Block -->
+            <div class="lg:col-span-7 space-y-5">
+              <div class="space-y-2">
+                <h3 class="text-sm font-bold text-white font-outfit uppercase tracking-wider text-[#D2F129]">User Pain Points Drive Market Opportunity</h3>
+                <p class="text-xs leading-relaxed text-neutral-300">
+                  Today's intercity bus travelers face significant friction across their entire journey. The experience is fragmented, with passengers managing separate bookings for first-mile connectivity, bus tickets, meals, and last-mile transport. Rescheduling is cumbersome and often involves penalty fees, while comfort and safety standards remain inconsistent. During the journey itself, passengers struggle with limited entertainment options and unreliable food availability at stops.
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <h3 class="text-sm font-bold text-white font-outfit uppercase tracking-wider text-[#D2F129]">Competitive Landscape & Gaps</h3>
+                <p class="text-xs leading-relaxed text-neutral-400">
+                  The market is dominated by RedBus, alongside competitors like MakeMyTrip and AbhiBus. However, these platforms primarily focus on ticket aggregation without addressing the broader journey experience. Critical gaps exist in end-to-end journey integration, real-time tracking capabilities, premium service offerings, and seamless multimodal connectivity creating a clear opportunity for differentiation. We sell <strong class="text-white">Convenience</strong>, while focusing on a cost-centric approach.
+                </p>
+              </div>
+
+              <!-- Market size text disclaimer -->
+              <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl">
+                <p class="text-[10px] text-neutral-400 font-mono leading-relaxed">
+                  * Note: This market represents a substantial growth opportunity, with Ola positioned to capture ~10% of the digital market through superior user experience and existing brand trust.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Visual Block (Market share details) -->
+            <div class="lg:col-span-5 bg-neutral-900/40 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between space-y-4">
+              <div class="space-y-3">
+                <h4 class="text-xs uppercase tracking-widest font-bold text-[#D2F129] font-mono">Market Addressability</h4>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  Aggressive growth projections of the intercity passenger ecosystem:
+                </p>
+
+                <!-- Value metrics layout -->
+                <div class="space-y-3 font-mono text-[10px] pt-2">
+                  <div class="p-3 bg-neutral-950 rounded-xl border border-neutral-800 flex justify-between items-center">
+                    <div>
+                      <p class="text-lg font-bold text-white">59.1M</p>
+                      <p class="text-[9px] text-neutral-400 uppercase tracking-widest font-sans">Annual Passengers (TAM)</p>
+                    </div>
+                    <span class="text-[10px] text-neutral-500 bg-neutral-900 px-2 py-1 rounded">INR 59B</span>
+                  </div>
+                  
+                  <div class="p-3 bg-neutral-950 rounded-xl border border-neutral-800 flex justify-between items-center">
+                    <div>
+                      <p class="text-lg font-bold text-[#D2F129]">23.6M</p>
+                      <p class="text-[9px] text-neutral-400 uppercase tracking-widest font-sans">Digital Addressable (SAM)</p>
+                    </div>
+                    <span class="text-[10px] text-[#D2F129]/80 bg-neutral-900 px-2 py-1 rounded">Digitally-enabled</span>
+                  </div>
+
+                  <div class="p-3 bg-neutral-950 rounded-xl border border-neutral-800 flex justify-between items-center">
+                    <div>
+                      <p class="text-lg font-bold text-emerald-400">2.4M</p>
+                      <p class="text-[9px] text-neutral-400 uppercase tracking-widest font-sans">Ola Target Users (SOM)</p>
+                    </div>
+                    <span class="text-[10px] text-emerald-400/80 bg-neutral-900 px-2 py-1 rounded">18-Month Outlook</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-amber-950/20 border border-amber-900/30 p-3 rounded-xl">
+                <p class="text-[11px] italic text-amber-300 leading-relaxed text-center">
+                  <strong>Strategic Imperative:</strong> The combination of market size, clear user pain points, and competitive gaps creates a compelling case for market entry.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 2 of 5</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 3: PRODUCT STRATEGY & CIRCLES ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-3">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#D2F129] font-mono block mb-1">PAGE 03 // PRODUCT FRAMEWORK</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Product Strategy & CIRCLES Framework</h2>
+            </div>
+            <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded font-mono text-xs text-neutral-400">App Blueprint</span>
+          </div>
+
+          <!-- Framework Columns -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 my-auto overflow-y-auto">
+            
+            <!-- Discovery Card -->
+            <div class="md:col-span-4 bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl mb-2 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div class="space-y-1 max-w-2xl">
+                <h4 class="text-xs font-bold text-[#D2F129] uppercase tracking-wider font-mono">Discovery Framework: Understanding Deep User Needs</h4>
+                <p class="text-xs text-neutral-300 leading-relaxed">
+                  Our product discovery process combines rigorous user interviews with comprehensive journey mapping to identify friction points. We've uncovered that the pain isn't just about booking a bus seat; it is actually about the anxiety and inefficiency surrounding the entire journey.
+                </p>
+              </div>
+              <div class="bg-neutral-950 border border-neutral-800 px-4 py-3 rounded-lg shrink-0 text-center">
+                <p class="text-[9px] text-neutral-400 uppercase tracking-widest font-mono">Value Proposition</p>
+                <p class="text-xs font-bold text-white font-outfit mt-1">"India's only end-to-end, integrated travel app"</p>
+              </div>
+            </div>
+
+            <!-- Circles 1-2 -->
+            <div class="bg-neutral-900/40 border border-neutral-800/80 rounded-xl p-4 space-y-3 hover:border-neutral-700 transition-colors">
+              <div class="space-y-2">
+                <span class="text-xs font-bold font-mono text-[#D2F129] bg-neutral-950 px-2 py-0.5 rounded">01 & 02</span>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider font-outfit">Comprehend & Identify</h4>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  <strong>The Situation:</strong> 59M annual passengers facing fragmented, stressful, and safe-deficient options.
+                </p>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  <strong>The Customer:</strong> Urban professionals & families, ages 25-45, digitally-savvy, frequent travelers who value safety and convenience.
+                </p>
+              </div>
+            </div>
+
+            <!-- Circles 3-4 -->
+            <div class="bg-neutral-900/40 border border-neutral-800/80 rounded-xl p-4 space-y-3 hover:border-neutral-700 transition-colors">
+              <div class="space-y-2">
+                <span class="text-xs font-bold font-mono text-[#D2F129] bg-neutral-950 px-2 py-0.5 rounded">03 & 04</span>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider font-outfit">Needs & Prioritize</h4>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  <strong>Customer Needs:</strong> End-to-end journey safety, flexible rescheduling, real-time live ETAs, and quality food choices.
+                </p>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  <strong>Prioritization:</strong> Phase 1 focuses on core multimodal booking and rescheduling. Phase 2 adds premium food/content. Phase 3 scale.
+                </p>
+              </div>
+            </div>
+
+            <!-- Circles 5-6 -->
+            <div class="bg-neutral-900/40 border border-neutral-800/80 rounded-xl p-4 space-y-3 hover:border-neutral-700 transition-colors">
+              <div class="space-y-2">
+                <span class="text-xs font-bold font-mono text-[#D2F129] bg-neutral-950 px-2 py-0.5 rounded">05 & 06</span>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider font-outfit">Solutions & Trade-offs</h4>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  <strong>List Solutions:</strong> Integrated cab+bus tickets, automated food coordination, and verified live GPS.
+                </p>
+                <p class="text-[11px] text-neutral-400 leading-relaxed">
+                  <strong>Trade-offs:</strong> Balancing complexity of multimodal tech versus speed-to-market and simplicity.
+                </p>
+              </div>
+            </div>
+
+            <!-- Circles 7 -->
+            <div class="bg-neutral-900/40 border border-neutral-800/80 rounded-xl p-4 space-y-3 hover:border-[#D2F129]/40 transition-colors">
+              <div class="space-y-2">
+                <span class="text-xs font-bold font-mono text-[#D2F129] bg-neutral-950 px-2 py-0.5 rounded">07</span>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider font-outfit">Recommendation</h4>
+                <p class="text-[11px] text-neutral-300 leading-relaxed">
+                  <strong>Summary:</strong> Launch MVP with core integration features in metro corridors, iterate on user feedback, progressively add premium features, and expand as unit economics validate.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-neutral-600 text-[10px] font-mono border-t border-neutral-900 pt-3 flex justify-between">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 3 of 5</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 4: THE INTEGRATED SOLUTION ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 text-white relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-4 z-10">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#D2F129] font-mono block mb-1">PAGE 04 // SYSTEM ARCHITECTURE</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">Integrated Solution: Redefining Intercity Travel</h2>
+            </div>
+            <span class="px-3 py-1 bg-black/35 rounded font-mono text-xs text-white/80 border border-white/10">Features & Monetization</span>
+          </div>
+
+          <!-- Feature Columns + Monetization List -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto items-center overflow-y-auto z-10">
+            
+            <!-- Left 6: The 6 Key Product Features -->
+            <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+              <div class="bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl space-y-1.5">
+                <div class="flex items-center gap-1.5 text-[#D2F129]">
+                  <span class="text-sm">🚗</span>
+                  <h4 class="text-xs font-bold font-outfit uppercase">Door-to-Door Integration</h4>
+                </div>
+                <p class="text-[10px] text-neutral-400 leading-relaxed">
+                  Seamless journey combining Ola cabs, autos, or bikes for first and last-mile connectivity. Single booking, unified payments.
+                </p>
+              </div>
+
+              <div class="bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl space-y-1.5">
+                <div class="flex items-center gap-1.5 text-[#D2F129]">
+                  <span class="text-sm">🍔</span>
+                  <h4 class="text-xs font-bold font-outfit uppercase">Automated Food Delivery</h4>
+                </div>
+                <p class="text-[10px] text-neutral-400 leading-relaxed">
+                  Pre-scheduled meal delivery at designated stops via Ola Eats integration, ensuring fresh meals right at roadside stops.
+                </p>
+              </div>
+
+              <div class="bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl space-y-1.5">
+                <div class="flex items-center gap-1.5 text-[#D2F129]">
+                  <span class="text-sm">🔄</span>
+                  <h4 class="text-xs font-bold font-outfit uppercase">Flexible Rescheduling</h4>
+                </div>
+                <p class="text-[10px] text-neutral-400 leading-relaxed">
+                  Simple one-tap rescheduling with instant refunds when buses are canceled. No phone calls, no paperwork.
+                </p>
+              </div>
+
+              <div class="bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl space-y-1.5">
+                <div class="flex items-center gap-1.5 text-[#D2F129]">
+                  <span class="text-sm">🎬</span>
+                  <h4 class="text-xs font-bold font-outfit uppercase">Entertainment Bundles</h4>
+                </div>
+                <p class="text-[10px] text-neutral-400 leading-relaxed">
+                  Access Netflix, Prime, or Hotstar during travel with hourly charges or stream via high-speed bus WiFi.
+                </p>
+              </div>
+
+              <div class="bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl space-y-1.5">
+                <div class="flex items-center gap-1.5 text-[#D2F129]">
+                  <span class="text-sm">📍</span>
+                  <h4 class="text-xs font-bold font-outfit uppercase">Live Tracking</h4>
+                </div>
+                <p class="text-[10px] text-neutral-400 leading-relaxed">
+                  Real-time GPS location sharing with family. Accurate ETAs and geofence-based wake-up alarms.
+                </p>
+              </div>
+
+              <div class="bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl space-y-1.5">
+                <div class="flex items-center gap-1.5 text-[#D2F129]">
+                  <span class="text-sm">🛡️</span>
+                  <h4 class="text-xs font-bold font-outfit uppercase">Verified Safety</h4>
+                </div>
+                <p class="text-[10px] text-neutral-400 leading-relaxed">
+                  All drivers verified with background checks, ratings, SOS button integration, and 24/7 support hotline.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right 5: Revenue Streams & Strategy -->
+            <div class="lg:col-span-5 bg-neutral-900/80 border border-neutral-800 rounded-2xl p-6 space-y-5">
+              <div class="border-b border-neutral-800 pb-2">
+                <h4 class="text-xs uppercase tracking-widest font-bold text-neutral-400 font-mono">Revenue & Business Strategy</h4>
+                <h3 class="text-base font-bold font-outfit mt-0.5">Monetization Streams</h3>
+              </div>
+
+              <ul class="text-[11px] text-neutral-300 space-y-3 font-mono">
+                <li class="flex items-start gap-2">
+                  <span class="text-[#D2F129] font-bold">•</span>
+                  <span><strong>Platform Fees:</strong> 8-12% commission on bus bookings, tiered by route popularity.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#D2F129] font-bold">•</span>
+                  <span><strong>Cross-Sell Revenue:</strong> Booking first/last-mile rides, food orders, and content.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#D2F129] font-bold">•</span>
+                  <span><strong>Bundled Packages:</strong> All-inclusive journey packages drive higher transactions.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#D2F129] font-bold">•</span>
+                  <span><strong>Loyalty Credits:</strong> Ola credits incentivize cross-platform retention.</span>
+                </li>
+              </ul>
+
+              <div class="bg-emerald-950/20 border border-emerald-900/30 p-4 rounded-xl text-center">
+                <p class="text-[11px] text-emerald-400 font-bold leading-relaxed">
+                  💡 STRATEGIC ADVANTAGE: 3-4x Higher Revenue per Customer by monetizing the entire journey lifecycle rather than just ticketing.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-white/40 text-[10px] font-mono border-t border-white/10 pt-3 flex justify-between z-10">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 4 of 5</span>
+          </footer>
+        </article>
+
+        <!-- ======================= SLIDE 5: GTM STRATEGY & METRICS ======================= -->
+        <article class="slide h-full flex flex-col justify-between p-10 bg-neutral-950 text-white relative overflow-hidden">
+          <!-- Slide Heading -->
+          <div class="flex justify-between items-start border-b border-neutral-800 pb-4 z-10">
+            <div>
+              <span class="text-xs font-bold tracking-[0.25em] text-[#D2F129] font-mono block mb-1">PAGE 05 // GTM & OPERATION</span>
+              <h2 class="text-2xl font-bold font-outfit uppercase">GTM Strategy & Success Metrics</h2>
+            </div>
+            <span class="px-3 py-1 bg-black/35 rounded font-mono text-xs text-white/80 border border-white/10 font-bold uppercase tracking-wider text-[#D2F129]">Deep Dive KPI</span>
+          </div>
+
+          <!-- Main Layout Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto items-center overflow-y-auto z-10">
+            
+            <!-- Left Side: GTM Phases -->
+            <div class="lg:col-span-6 space-y-4">
+              <h3 class="text-sm font-bold font-outfit uppercase tracking-wider text-[#D2F129]">Phased Rollout Strategy</h3>
+              
+              <div class="space-y-3 font-mono text-[10px]">
+                <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl space-y-1">
+                  <p class="text-white font-bold uppercase text-[11px] tracking-wide flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#D2F129]"></span>
+                    Phase 1: Pilot & Validate
+                  </p>
+                  <p class="text-neutral-400">Target 8 metro routes with premium operators. Offer bundled discounts for rides + bus + food + free entertainment to key early adopters.</p>
+                </div>
+
+                <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl space-y-1">
+                  <p class="text-[#D2F129] font-bold uppercase text-[11px] tracking-wide flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#D2F129]/60"></span>
+                    Phase 2: Expand & Cluster
+                  </p>
+                  <p class="text-neutral-400">Grow into Tier-1 cities and fast-developing urban corridors. Onboard more operators and build intercity travel clusters.</p>
+                </div>
+
+                <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl space-y-1">
+                  <p class="text-neutral-500 font-bold uppercase text-[11px] tracking-wide flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-neutral-700"></span>
+                    Phase 3: Scale & Deepen
+                  </p>
+                  <p class="text-neutral-400">Expand partner network significantly. Drive feature adoption through deep in-app integration and personalized notifications.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Key Success Metrics -->
+            <div class="lg:col-span-6 space-y-4">
+              <h3 class="text-sm font-bold font-outfit uppercase tracking-wider text-[#D2F129]">Core Performance KPIs</h3>
+              
+              <div class="grid grid-cols-2 gap-3 text-[10px] font-sans">
+                <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:border-neutral-700 transition-colors">
+                  <p class="font-bold text-white uppercase font-mono text-[9px] mb-1 text-[#D2F129]">NPS score</p>
+                  <p class="text-neutral-400 leading-relaxed">Overall customer satisfaction score for integrated door-to-door journeys.</p>
+                </div>
+                
+                <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:border-neutral-700 transition-colors">
+                  <p class="font-bold text-white uppercase font-mono text-[9px] mb-1 text-[#D2F129]">Multimodal %</p>
+                  <p class="text-neutral-400 leading-relaxed">Percentage of journeys utilizing both a bus leg and an additional Ola cab leg.</p>
+                </div>
+
+                <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:border-neutral-700 transition-colors">
+                  <p class="font-bold text-white uppercase font-mono text-[9px] mb-1 text-[#D2F129]">Attach Rates</p>
+                  <p class="text-neutral-400 leading-relaxed">Frequency of pre-booked food and streaming entertainment packages purchased per trip.</p>
+                </div>
+
+                <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:border-neutral-700 transition-colors">
+                  <p class="font-bold text-white uppercase font-mono text-[9px] mb-1 text-[#D2F129]">Repeat user %</p>
+                  <p class="text-neutral-400 leading-relaxed">Percentage of users making repeat bookings within the first 6 months of use.</p>
+                </div>
+              </div>
+
+              <!-- Positioning Quote -->
+              <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl">
+                <p class="text-[11px] font-mono text-center text-neutral-300">
+                  📍 <strong>Positioning:</strong> "Ola Journey-as-a-Service: From your door to your destination; safe, convenient, and rewarding."
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slide Footer -->
+          <footer class="text-white/40 text-[10px] font-mono border-t border-white/10 pt-3 flex justify-between z-10">
+            <span>Playbook ~ Madhur Maheshwari</span>
+            <span>Slide 5 of 5</span>
+          </footer>
+        </article>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- BOTTOM DECK BAR CONTROLLER -->
+  <footer class="bg-neutral-950 border-t border-neutral-800 px-6 py-4 flex justify-between items-center z-50">
+    <div class="flex items-center gap-3">
+      <button onclick="prevSlide()" class="p-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-950 border border-neutral-800 text-white transition-colors" title="Previous Slide">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button onclick="nextSlide()" class="p-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-950 border border-neutral-800 text-white transition-colors" title="Next Slide">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <span id="slide-indicator" class="text-xs text-neutral-400 font-mono font-medium tracking-wide">Slide 1 of 5</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Direct presentation view progress bar -->
+      <div class="hidden sm:block w-48 h-1 bg-neutral-800 rounded-full overflow-hidden">
+        <div id="slide-progress" class="h-full bg-[#D2F129] rounded-full transition-all duration-300" style="width: 20%"></div>
+      </div>
+      <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest hidden sm:inline-block">Auto Scale</span>
+    </div>
+  </footer>
+
+  <script>
+    // Slide registry
+    const slidesData = [
+      { id: 1, title: "Cover Slide", desc: "Should Ola Enter the Long Distance Bus Market?" },
+      { id: 2, title: "Market Opportunity", desc: "Untapped opportunity in India's intercity travel market" },
+      { id: 3, title: "Product Strategy & CIRCLES", desc: "Product discovery process & framework application" },
+      { id: 4, title: "Integrated Solution", desc: "Door-to-door, automated food, verified safety, & monetization" },
+      { id: 5, title: "GTM & success Metrics", desc: "Phased pilot rollouts & success KPIs metrics" }
+    ];
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const indicator = document.getElementById('slide-indicator');
+    const progress = document.getElementById('slide-progress');
+    const sidebarList = document.getElementById('sidebar-list');
+
+    // Build sidebar thumbnails list
+    function renderSidebar() {
+      sidebarList.innerHTML = '';
+      slidesData.forEach((slide, i) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => selectSlide(i);
+        btn.className = `w-full text-left p-3.5 rounded-xl border transition-all duration-200 flex flex-col gap-1 ${
+          i === currentSlide 
+            ? 'bg-[#D2F129]/10 border-[#D2F129]/40 text-[#D2F129]' 
+            : 'bg-neutral-900/40 border-neutral-800/80 hover:bg-neutral-900/90 text-neutral-300'
+        }`;
+        
+        btn.innerHTML = `
+          <div class="flex justify-between items-center font-mono text-[9px] uppercase tracking-wider">
+            <span class="${i === currentSlide ? 'text-[#D2F129]' : 'text-neutral-500'}">Page 0${slide.id}</span>
+            <span class="w-1.5 h-1.5 rounded-full ${i === currentSlide ? 'bg-[#D2F129]' : 'bg-transparent'}"></span>
+          </div>
+          <h4 class="text-xs font-bold truncate leading-tight">${slide.title}</h4>
+          <p class="text-[10px] leading-tight opacity-70 line-clamp-1">${slide.desc}</p>
+        `;
+        sidebarList.appendChild(btn);
+      });
+    }
+
+    function selectSlide(index) {
+      if (index < 0 || index >= slides.length) return;
+      
+      // Update active classes
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+      
+      // Update presentation indicators
+      indicator.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+      if (progress) {
+        progress.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+      }
+      
+      renderSidebar();
+    }
+
+    function prevSlide() {
+      selectSlide(currentSlide - 1);
+    }
+
+    function nextSlide() {
+      selectSlide(currentSlide + 1);
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('slide-sidebar');
+      sidebar.classList.toggle('hidden');
+    }
+
+    // Keyboard controls
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      }
+    });
+
+    // Initial load
+    renderSidebar();
+  </script>
+</body>
+</html>
